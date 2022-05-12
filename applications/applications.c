@@ -365,8 +365,7 @@ const FlipperApplication FLIPPER_PLUGINS[] = {
     {.app = tetris_game_app,
      .name = "Tetris Game",
      .stack_size = 1024,
-     .icon = &A_Games_14,
-     .icon = NULL},
+     .icon = &A_Games_14,},
 #endif
 
 #ifdef APP_SPECTRUM_ANALYZER
