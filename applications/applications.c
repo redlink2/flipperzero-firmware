@@ -276,7 +276,7 @@ const FlipperApplication FLIPPER_APPS[] = {
     {.app = spectrum_analyzer_app,
      .name = "Spectrum Analyzer",
      .stack_size = 2024,
-     .icon = &A_Plugins_14,
+     .icon = &A_SpectrumAnalyzer_14,
      .flags = FlipperApplicationFlagDefault},
 #endif
 

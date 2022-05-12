@@ -106,6 +106,7 @@ extern const Icon A_Passport_14;
 extern const Icon A_Plugins_14;
 extern const Icon A_Power_14;
 extern const Icon A_Settings_14;
+extern const Icon A_SpectrumAnalyzer_14;
 extern const Icon A_Sub1ghz_14;
 extern const Icon A_Tamagotchi_14;
 extern const Icon A_U2F_14;
