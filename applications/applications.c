@@ -272,6 +272,14 @@ const FlipperApplication FLIPPER_APPS[] = {
      .flags = FlipperApplicationFlagDefault},
 #endif
 
+#ifdef APP_SPECTRUM_ANALYZER
+    {.app = spectrum_analyzer_app,
+     .name = "Spectrum Analyzer",
+     .stack_size = 2024,
+     .icon = &A_Plugins_14,
+     .flags = FlipperApplicationFlagDefault},
+#endif
+
 #ifdef APP_CLOCK
     {.app = clockmenu_app,
      .name = "Clock",
@@ -366,14 +374,6 @@ const FlipperApplication FLIPPER_PLUGINS[] = {
      .name = "Tetris Game",
      .stack_size = 1024,
      .icon = &A_Games_14,},
-#endif
-
-#ifdef APP_SPECTRUM_ANALYZER
-    {.app = spectrum_analyzer_app,
-     .name = "Spectrum Analyzer",
-     .stack_size = 1024,
-     .icon = &A_Plugins_14,
-     .flags = FlipperApplicationFlagDefault},
 #endif
 };
 
