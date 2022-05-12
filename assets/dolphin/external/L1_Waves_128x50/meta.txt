@@ -43,7 +43,7 @@ EndFrame: 5
 Slot: 2
 X: 1
 Y: 25
-Text: swim all day
+Text: code all day
 AlignH: Right
 AlignV: Bottom
 StartFrame: 6
