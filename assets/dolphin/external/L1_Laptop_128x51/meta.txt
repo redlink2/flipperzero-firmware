@@ -11,7 +11,7 @@ Frame rate: 2
 Duration: 3600
 Active cooldown: 7
 
-Bubble slots: 1
+Bubble slots: 2
 
 Slot: 0
 X: 60
@@ -26,6 +26,24 @@ Slot: 0
 X: 60
 Y: 23
 Text: but its bugged
+AlignH: Left
+AlignV: Bottom
+StartFrame: 11
+EndFrame: 13
+
+Slot: 1
+X: 60
+Y: 23
+Text: It's hard to find the time
+AlignH: Left
+AlignV: Bottom
+StartFrame: 7
+EndFrame: 10
+
+Slot: 1
+X: 60
+Y: 23
+Text: but its worth it
 AlignH: Left
 AlignV: Bottom
 StartFrame: 11

@@ -11,7 +11,7 @@ Frame rate: 2
 Duration: 3600
 Active cooldown: 5
 
-Bubble slots: 2
+Bubble slots: 3
 
 Slot: 0
 X: 53
@@ -38,4 +38,13 @@ Text: Just a dream...
 AlignH: Left
 AlignV: Bottom
 StartFrame: 6
+EndFrame: 9
+
+Slot: 2
+X: 53
+Y: 20
+Text: That's how to kill \nthat bug...
+AlignH: Left
+AlignV: Bottom
+StartFrame: 3
 EndFrame: 9

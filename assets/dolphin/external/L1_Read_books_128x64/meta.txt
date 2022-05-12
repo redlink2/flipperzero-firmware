@@ -11,12 +11,21 @@ Frame rate: 2
 Duration: 3600
 Active cooldown: 5
 
-Bubble slots: 1
+Bubble slots: 2
 
 Slot: 0
 X: 5
 Y: 28
 Text: Easily modded
+AlignH: Right
+AlignV: Bottom
+StartFrame: 14
+EndFrame: 16
+
+Slot: 1
+X: 5
+Y: 28
+Text: Can't wait for V1
 AlignH: Right
 AlignV: Bottom
 StartFrame: 14
