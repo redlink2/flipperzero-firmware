@@ -48,7 +48,8 @@ extern int32_t text_box_test_app(void* p);
 // Plugins
 extern int32_t music_player_app(void* p);
 extern int32_t snake_game_app(void* p);
-extern int32_t tetris_game_app(void *p);
+extern int32_t tetris_game_app(void* p);
+extern int32_t flappy_bird_app(void* p);
 extern int32_t spectrum_analyzer_app(void* p);
 extern int32_t clockmenu_app(void* p);
 
@@ -274,10 +275,10 @@ const FlipperApplication FLIPPER_APPS[] = {
 
 #ifdef APP_CLOCK
     {.app = clockmenu_app,
-    .name = "Clock",
-    .stack_size = 2048,
-    .icon = &A_Clock_14,
-    .flags = FlipperApplicationFlagDefault},
+     .name = "Clock",
+     .stack_size = 2048,
+     .icon = &A_Clock_14,
+     .flags = FlipperApplicationFlagDefault},
 #endif
 
 };
@@ -357,15 +358,24 @@ const FlipperApplication FLIPPER_PLUGINS[] = {
     {.app = snake_game_app,
      .name = "Snake Game",
      .stack_size = 1024,
-     .icon = &A_Plugins_14,
+     .icon = &A_Games_14,
      .flags = FlipperApplicationFlagDefault},
 #endif
 
 #ifdef APP_TETRIS_GAME
-        {.app = tetris_game_app,
-	 .name = "Tetris Game",
-	 .stack_size = 1024,
-	 .icon = NULL},
+    {.app = tetris_game_app,
+     .name = "Tetris Game",
+     .stack_size = 1024,
+     .icon = &A_Games_14,
+     .icon = NULL},
+#endif
+
+#ifdef APP_FLAPPY_BIRD
+    {.app = flappy_bird_app,
+     .name = "Flappy Bird",
+     .stack_size = 1024,
+     .icon = &A_Games_14,
+     .flags = FlipperApplicationFlagDefault},
 #endif
 
 #ifdef APP_SPECTRUM_ANALYZER
