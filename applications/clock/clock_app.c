@@ -112,7 +112,7 @@ static void clock_tick(void* ctx) {
     osMessageQueuePut(event_queue, &event, 0, 0);
 }
 
-int32_t clock_app_old(void* p) {
+int32_t clock_app_old(void) {
     timerStarted=false;
     timerSecs=0;
 
