@@ -50,6 +50,7 @@ extern int32_t music_player_app(void* p);
 extern int32_t snake_game_app(void* p);
 extern int32_t tetris_game_app(void *p);
 extern int32_t spectrum_analyzer_app(void* p);
+extern int32_t clockmenu_app(void* p);
 
 // On system start hooks declaration
 extern void bt_on_system_start();
@@ -269,6 +270,14 @@ const FlipperApplication FLIPPER_APPS[] = {
      .stack_size = 2048,
      .icon = &A_U2F_14,
      .flags = FlipperApplicationFlagDefault},
+#endif
+
+#ifdef APP_CLOCK
+    {.app = clockmenu_app,
+    .name = "Clock",
+    .stack_size = 2048,
+    .icon = &A_Clock_14,
+    .flags = FlipperApplicationFlagDefault},
 #endif
 
 };
