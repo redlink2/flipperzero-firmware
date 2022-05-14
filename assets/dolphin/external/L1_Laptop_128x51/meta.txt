@@ -16,7 +16,7 @@ Bubble slots: 3
 Slot: 0
 X: 60
 Y: 23
-Text: This firmware should compile
+Text: This firmware \nshould compile
 AlignH: Left
 AlignV: Bottom
 StartFrame: 7
@@ -34,7 +34,7 @@ EndFrame: 13
 Slot: 1
 X: 60
 Y: 23
-Text: It's hard to find the time
+Text: It's hard to \nfind the time
 AlignH: Left
 AlignV: Bottom
 StartFrame: 7
@@ -43,7 +43,7 @@ EndFrame: 10
 Slot: 1
 X: 60
 Y: 23
-Text: but its worth it
+Text: but its \nworth it
 AlignH: Left
 AlignV: Bottom
 StartFrame: 11
