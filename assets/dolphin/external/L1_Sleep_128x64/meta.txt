@@ -43,7 +43,7 @@ EndFrame: 9
 Slot: 2
 X: 53
 Y: 20
-Text: That's how to kill \nthat bug...
+Text: That's how to \nkill that bug...
 AlignH: Left
 AlignV: Bottom
 StartFrame: 3
