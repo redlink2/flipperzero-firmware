@@ -11,12 +11,12 @@ Frame rate: 2
 Duration: 3600
 Active cooldown: 5
 
-Bubble slots: 2
+Bubble slots: 4
 
 Slot: 0
 X: 53
 Y: 20
-Text: In a lucid dream,\nI could walk...
+Text: In a lucid dream,\nI could fly...
 AlignH: Left
 AlignV: Bottom
 StartFrame: 3
@@ -25,7 +25,7 @@ EndFrame: 9
 Slot: 1
 X: 53
 Y: 20
-Text: OH MY GOD!
+Text: AAAHHHHHHH!
 AlignH: Left
 AlignV: Bottom
 StartFrame: 3
@@ -38,4 +38,22 @@ Text: Just a dream...
 AlignH: Left
 AlignV: Bottom
 StartFrame: 6
+EndFrame: 9
+
+Slot: 2
+X: 53
+Y: 20
+Text: That's how to \nkill that bug...
+AlignH: Left
+AlignV: Bottom
+StartFrame: 3
+EndFrame: 9
+
+Slot: 3
+X: 53
+Y: 20
+Text: It's so late...
+AlignH: Left
+AlignV: Bottom
+StartFrame: 3
 EndFrame: 9

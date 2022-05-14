@@ -11,12 +11,12 @@ Frame rate: 2
 Duration: 3600
 Active cooldown: 7
 
-Bubble slots: 2
+Bubble slots: 3
 
 Slot: 0
 X: 60
 Y: 23
-Text: This firmware should compile
+Text: This firmware \nshould compile
 AlignH: Left
 AlignV: Bottom
 StartFrame: 7
@@ -34,7 +34,7 @@ EndFrame: 13
 Slot: 1
 X: 60
 Y: 23
-Text: It's hard to find the time
+Text: It's hard to \nfind the time
 AlignH: Left
 AlignV: Bottom
 StartFrame: 7
@@ -43,7 +43,16 @@ EndFrame: 10
 Slot: 1
 X: 60
 Y: 23
-Text: but its worth it
+Text: but its \nworth it
+AlignH: Left
+AlignV: Bottom
+StartFrame: 11
+EndFrame: 13
+
+Slot: 2
+X: 60
+Y: 23
+Text: What's the next project?
 AlignH: Left
 AlignV: Bottom
 StartFrame: 11

@@ -50,7 +50,7 @@ extern int32_t music_player_app(void* p);
 extern int32_t snake_game_app(void* p);
 extern int32_t tetris_game_app(void* p);
 extern int32_t spectrum_analyzer_app(void* p);
-extern int32_t clockmenu_app(void* p);
+extern int32_t clock_app_old(void* p);
 
 // On system start hooks declaration
 extern void bt_on_system_start();
@@ -216,6 +216,14 @@ const FlipperApplication FLIPPER_APPS[] = {
      .flags = FlipperApplicationFlagDefault},
 #endif
 
+#ifdef APP_SPECTRUM_ANALYZER
+    {.app = spectrum_analyzer_app,
+     .name = "Spectrum Analyzer",
+     .stack_size = 2024,
+     .icon = &A_SpectrumAnalyzer_14,
+     .flags = FlipperApplicationFlagDefault},
+#endif
+
 #ifdef APP_LF_RFID
     {.app = lfrfid_app,
      .name = "125 kHz RFID",
@@ -272,16 +280,16 @@ const FlipperApplication FLIPPER_APPS[] = {
      .flags = FlipperApplicationFlagDefault},
 #endif
 
-#ifdef APP_SPECTRUM_ANALYZER
-    {.app = spectrum_analyzer_app,
-     .name = "Spectrum Analyzer",
-     .stack_size = 2024,
-     .icon = &A_SpectrumAnalyzer_14,
+#ifdef APP_MUSIC_PLAYER
+    {.app = music_player_app,
+     .name = "Music Player",
+     .stack_size = 2048,
+     .icon = &A_MusicPlayer_14,
      .flags = FlipperApplicationFlagDefault},
 #endif
 
 #ifdef APP_CLOCK
-    {.app = clockmenu_app,
+    {.app = clock_app_old,
      .name = "Clock",
      .stack_size = 2048,
      .icon = &A_Clock_14,
@@ -350,14 +358,6 @@ const FlipperApplication FLIPPER_PLUGINS[] = {
      .name = "Bluetooth Remote",
      .stack_size = 1024,
      .icon = NULL,
-     .flags = FlipperApplicationFlagDefault},
-#endif
-
-#ifdef APP_MUSIC_PLAYER
-    {.app = music_player_app,
-     .name = "Music Player",
-     .stack_size = 2048,
-     .icon = &A_Plugins_14,
      .flags = FlipperApplicationFlagDefault},
 #endif
 
