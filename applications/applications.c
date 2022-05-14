@@ -280,6 +280,14 @@ const FlipperApplication FLIPPER_APPS[] = {
      .flags = FlipperApplicationFlagDefault},
 #endif
 
+#ifdef APP_MUSIC_PLAYER
+    {.app = music_player_app,
+     .name = "Music Player",
+     .stack_size = 2048,
+     .icon = &A_MusicPlayer_14,
+     .flags = FlipperApplicationFlagDefault},
+#endif
+
 #ifdef APP_CLOCK
     {.app = clock_app_old,
      .name = "Clock",
@@ -350,14 +358,6 @@ const FlipperApplication FLIPPER_PLUGINS[] = {
      .name = "Bluetooth Remote",
      .stack_size = 1024,
      .icon = NULL,
-     .flags = FlipperApplicationFlagDefault},
-#endif
-
-#ifdef APP_MUSIC_PLAYER
-    {.app = music_player_app,
-     .name = "Music Player",
-     .stack_size = 2048,
-     .icon = &A_Plugins_14,
      .flags = FlipperApplicationFlagDefault},
 #endif
 
