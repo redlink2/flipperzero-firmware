@@ -11,7 +11,7 @@ Frame rate: 2
 Duration: 3600
 Active cooldown: 7
 
-Bubble slots: 2
+Bubble slots: 3
 
 Slot: 0
 X: 60
@@ -44,6 +44,15 @@ Slot: 1
 X: 60
 Y: 23
 Text: but its worth it
+AlignH: Left
+AlignV: Bottom
+StartFrame: 11
+EndFrame: 13
+
+Slot: 2
+X: 60
+Y: 23
+Text: What's the next project?
 AlignH: Left
 AlignV: Bottom
 StartFrame: 11

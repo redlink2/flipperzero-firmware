@@ -11,7 +11,7 @@ Frame rate: 2
 Duration: 3600
 Active cooldown: 5
 
-Bubble slots: 3
+Bubble slots: 4
 
 Slot: 0
 X: 53
@@ -44,6 +44,15 @@ Slot: 2
 X: 53
 Y: 20
 Text: That's how to kill \nthat bug...
+AlignH: Left
+AlignV: Bottom
+StartFrame: 3
+EndFrame: 9
+
+Slot: 3
+X: 53
+Y: 20
+Text: It's so late...
 AlignH: Left
 AlignV: Bottom
 StartFrame: 3

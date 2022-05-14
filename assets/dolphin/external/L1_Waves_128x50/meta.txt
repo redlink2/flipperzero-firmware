@@ -16,7 +16,7 @@ Bubble slots: 3
 Slot: 0
 X: 1
 Y: 17
-Text: I am happy,\nmy friend!
+Text: I am happy,\nComrade!
 AlignH: Right
 AlignV: Bottom
 StartFrame: 3
@@ -47,4 +47,13 @@ Text: code all day
 AlignH: Right
 AlignV: Bottom
 StartFrame: 6
+EndFrame: 9
+
+Slot: 3
+X: 1
+Y: 17
+Text: Don't get too \nhot out there!
+AlignH: Right
+AlignV: Center
+StartFrame: 3
 EndFrame: 9
