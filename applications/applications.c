@@ -216,6 +216,14 @@ const FlipperApplication FLIPPER_APPS[] = {
      .flags = FlipperApplicationFlagDefault},
 #endif
 
+#ifdef APP_SPECTRUM_ANALYZER
+    {.app = spectrum_analyzer_app,
+     .name = "Spectrum Analyzer",
+     .stack_size = 2024,
+     .icon = &A_SpectrumAnalyzer_14,
+     .flags = FlipperApplicationFlagDefault},
+#endif
+
 #ifdef APP_LF_RFID
     {.app = lfrfid_app,
      .name = "125 kHz RFID",
@@ -269,14 +277,6 @@ const FlipperApplication FLIPPER_APPS[] = {
      .name = "U2F",
      .stack_size = 2048,
      .icon = &A_U2F_14,
-     .flags = FlipperApplicationFlagDefault},
-#endif
-
-#ifdef APP_SPECTRUM_ANALYZER
-    {.app = spectrum_analyzer_app,
-     .name = "Spectrum Analyzer",
-     .stack_size = 2024,
-     .icon = &A_SpectrumAnalyzer_14,
      .flags = FlipperApplicationFlagDefault},
 #endif
 
