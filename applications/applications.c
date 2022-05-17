@@ -51,7 +51,7 @@ extern int32_t snake_game_app(void* p);
 extern int32_t tetris_game_app(void* p);
 extern int32_t spectrum_analyzer_app(void* p);
 extern int32_t universal_rf_remote_app(void* p);
-extern int32_t clock_app_old(void* p);
+extern int32_t clock_app(void* p);
 extern int32_t level_up_app(void* p);
 
 // On system start hooks declaration
@@ -299,7 +299,7 @@ const FlipperApplication FLIPPER_APPS[] = {
 #endif
 
 #ifdef APP_CLOCK
-    {.app = clock_app_old,
+    {.app = clock_app,
      .name = "Clock",
      .stack_size = 2048,
      .icon = &A_Clock_14,
