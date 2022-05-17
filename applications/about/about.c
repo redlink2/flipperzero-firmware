@@ -8,6 +8,33 @@
 
 typedef DialogMessageButton (*AboutDialogScreen)(DialogsApp* dialogs, DialogMessage* message);
 
+static DialogMessageButton redlink2_logo_screen(DialogsApp* dialogs, DialogMessage* message) {
+    DialogMessageButton result;
+
+    dialog_message_set_icon(message, &I_Redlink2_128_64, 0, 0);
+    result = dialog_message_show(dialogs, message);
+    dialog_message_set_icon(message, NULL, 0, 0);
+
+    return result;
+}
+
+static DialogMessageButton redlink2_info_screen(DialogsApp* dialogs, DialogMessage* message) {
+    DialogMessageButton result;
+
+    const char* screen_header = "Redlinked Edition\n";
+    const char* screen_text = "By Redlink2!\n"
+                              "Contact me at \n"
+                              "redlink2@redlink2.com\n";
+
+    dialog_message_set_header(message, screen_header, 0, 0, AlignLeft, AlignTop);
+    dialog_message_set_text(message, screen_text, 0, 16, AlignLeft, AlignTop);
+    result = dialog_message_show(dialogs, message);
+    dialog_message_set_header(message, NULL, 0, 0, AlignLeft, AlignTop);
+    dialog_message_set_text(message, NULL, 0, 0, AlignLeft, AlignTop);
+
+    return result;
+}
+
 static DialogMessageButton product_screen(DialogsApp* dialogs, DialogMessage* message) {
     DialogMessageButton result;
 
@@ -138,6 +165,8 @@ static DialogMessageButton fw_version_screen(DialogsApp* dialogs, DialogMessage*
 }
 
 const AboutDialogScreen about_screens[] = {
+    redlink2_logo_screen,
+    redlink2_info_screen,
     product_screen,
     compliance_screen,
     address_screen,
