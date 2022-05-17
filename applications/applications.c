@@ -50,6 +50,7 @@ extern int32_t music_player_app(void* p);
 extern int32_t snake_game_app(void* p);
 extern int32_t tetris_game_app(void* p);
 extern int32_t spectrum_analyzer_app(void* p);
+extern int32_t universal_rf_remote_app(void* p);
 extern int32_t clock_app_old(void* p);
 extern int32_t level_up_app(void* p);
 
@@ -208,6 +209,14 @@ const size_t FLIPPER_SYSTEM_APPS_COUNT = COUNT_OF(FLIPPER_SYSTEM_APPS);
 
 // Main menu APP
 const FlipperApplication FLIPPER_APPS[] = {
+
+#ifdef APP_UNIVERSALRF
+    {.app = universal_rf_remote_app,
+     .name = "Universal-RF",
+     .stack_size = 1024,
+     .icon = NULL,
+     .flags = FlipperApplicationFlagDefault},
+#endif
 
 #ifdef APP_SUBGHZ
     {.app = subghz_app,
@@ -371,10 +380,12 @@ const FlipperApplication FLIPPER_PLUGINS[] = {
 #endif
 
 #ifdef APP_TETRIS_GAME
-    {.app = tetris_game_app,
-     .name = "Tetris Game",
-     .stack_size = 1024,
-     .icon = &A_Games_14,},
+    {
+        .app = tetris_game_app,
+        .name = "Tetris Game",
+        .stack_size = 1024,
+        .icon = &A_Games_14,
+    },
 #endif
 
 #ifdef APP_LEVEL_UP
