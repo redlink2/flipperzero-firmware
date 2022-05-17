@@ -47,6 +47,7 @@ extern int32_t text_box_test_app(void* p);
 
 // Plugins
 extern int32_t music_player_app(void* p);
+extern int32_t wav_player_app(void* p);
 extern int32_t snake_game_app(void* p);
 extern int32_t tetris_game_app(void* p);
 extern int32_t spectrum_analyzer_app(void* p);
@@ -368,6 +369,14 @@ const FlipperApplication FLIPPER_PLUGINS[] = {
      .name = "Bluetooth Remote",
      .stack_size = 1024,
      .icon = NULL,
+     .flags = FlipperApplicationFlagDefault},
+#endif
+
+#ifdef APP_WAV_PLAYER
+    {.app = wav_player_app,
+     .name = "WAV Player",
+     .stack_size = 1024,
+     .icon = &A_MusicPlayer_14,
      .flags = FlipperApplicationFlagDefault},
 #endif
 
