@@ -21,6 +21,7 @@ extern int32_t accessor_app(void* p);
 extern int32_t archive_app(void* p);
 extern int32_t bad_usb_app(void* p);
 extern int32_t u2f_app(void* p);
+extern int32_t wav_player_app(void* p);
 extern int32_t uart_echo_app(void* p);
 extern int32_t blink_test_app(void* p);
 extern int32_t bt_debug_app(void* p);
@@ -38,21 +39,27 @@ extern int32_t passport_app(void* p);
 extern int32_t scened_app(void* p);
 extern int32_t storage_test_app(void* p);
 extern int32_t subghz_app(void* p);
+extern int32_t jukebox_app(void *p);
+extern int32_t universal_rf_remote_app(void *p);
 extern int32_t usb_mouse_app(void* p);
 extern int32_t usb_test_app(void* p);
 extern int32_t vibro_test_app(void* p);
 extern int32_t bt_hid_app(void* p);
 extern int32_t battery_test_app(void* p);
 extern int32_t text_box_test_app(void* p);
+extern int32_t file_browser_app(void* p);
 
 // Plugins
 extern int32_t music_player_app(void* p);
 extern int32_t snake_game_app(void* p);
 extern int32_t tetris_game_app(void* p);
+extern int32_t flappy_game_app(void* p);
 extern int32_t spectrum_analyzer_app(void* p);
 extern int32_t universal_rf_remote_app(void* p);
 extern int32_t clock_app(void* p);
 extern int32_t level_up_app(void* p);
+// extern int32_t floopper_bloopper(void* p);
+// extern int32_t raycast_game_app(void* p);
 
 // On system start hooks declaration
 extern void bt_on_system_start();
@@ -380,12 +387,19 @@ const FlipperApplication FLIPPER_PLUGINS[] = {
 #endif
 
 #ifdef APP_TETRIS_GAME
-    {
-        .app = tetris_game_app,
-        .name = "Tetris Game",
-        .stack_size = 1024,
-        .icon = &A_Games_14,
-    },
+    {.app = tetris_game_app,
+     .name = "Tetris Game",
+     .stack_size = 1024,
+     .icon = &A_Games_14,
+     .flags = FlipperApplicationFlagDefault},
+#endif
+
+#ifdef APP_FLAPPY_GAME
+    {.app = flappy_game_app,
+     .name = "Flipper Flappy Bird",
+     .stack_size = 1024,
+     .icon = &A_Games_14,
+     .flags = FlipperApplicationFlagDefault},
 #endif
 
 #ifdef APP_LEVEL_UP
@@ -395,6 +409,22 @@ const FlipperApplication FLIPPER_PLUGINS[] = {
      .icon = &A_Plugins_14,
      .flags = FlipperApplicationFlagDefault},
 #endif
+
+// #ifdef APP_RAYCAST_GAME
+//     {.app = raycast_game_app,
+//      .name = "Raycast Game",
+//      .stack_size = 4096,
+//      .icon = NULL,
+//      .flags = FlipperApplicationFlagDefault},
+// #endif
+
+// #ifdef FLOOPPER_BLOOPPER
+//     {.app = floopper_bloopper,
+//      .name = "Floopper Bloopper",
+//      .stack_size = 1024,
+//      .icon = &A_Plugins_14,
+//      .flags = FlipperApplicationFlagDefault},
+// #endif
 
 };
 
@@ -503,6 +533,14 @@ const FlipperApplication FLIPPER_DEBUG_APPS[] = {
      .name = "Display Test",
      .stack_size = 1024,
      .icon = NULL,
+     .flags = FlipperApplicationFlagDefault},
+#endif
+
+#ifdef APP_FILE_BROWSER_TEST
+    {.app = file_browser_app,
+     .name = "File Browser test",
+     .stack_size = 2048,
+     .icon = &A_BadUsb_14,
      .flags = FlipperApplicationFlagDefault},
 #endif
 
