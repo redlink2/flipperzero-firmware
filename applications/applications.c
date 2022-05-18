@@ -386,6 +386,14 @@ const FlipperApplication FLIPPER_PLUGINS[] = {
      .flags = FlipperApplicationFlagDefault},
 #endif
 
+#ifdef APP_SPECTRUM_ANALYZER
+    {.app = spectrum_analyzer_app, 
+    .name = "Spectrum Analyzer", 
+    .stack_size = 1024, 
+    .icon = &A_Plugins_14,
+    .flags = FlipperApplicationFlagDefault},
+#endif
+
 #ifdef APP_TETRIS_GAME
     {.app = tetris_game_app,
      .name = "Tetris Game",
