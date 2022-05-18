@@ -113,6 +113,7 @@ extern const Icon A_Settings_14;
 extern const Icon A_SpectrumAnalyzer_14;
 extern const Icon A_Sub1ghz_14;
 extern const Icon A_Tamagotchi_14;
+extern const Icon A_Tetris_14;
 extern const Icon A_TouchTunes_14;
 extern const Icon A_U2F_14;
 extern const Icon A_UniversalRemote_14;

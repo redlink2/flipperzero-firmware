@@ -313,6 +313,14 @@ const FlipperApplication FLIPPER_APPS[] = {
      .flags = FlipperApplicationFlagDefault},
 #endif
 
+#ifdef APP_TETRIS_GAME
+    {.app = tetris_game_app,
+     .name = "Tetris Game",
+     .stack_size = 1024,
+     .icon = &A_Tetris_14,
+     .flags = FlipperApplicationFlagDefault},
+#endif
+
 };
 
 const size_t FLIPPER_APPS_COUNT = COUNT_OF(FLIPPER_APPS);
@@ -392,14 +400,6 @@ const FlipperApplication FLIPPER_PLUGINS[] = {
     .stack_size = 1024, 
     .icon = &A_Plugins_14,
     .flags = FlipperApplicationFlagDefault},
-#endif
-
-#ifdef APP_TETRIS_GAME
-    {.app = tetris_game_app,
-     .name = "Tetris Game",
-     .stack_size = 1024,
-     .icon = &A_Games_14,
-     .flags = FlipperApplicationFlagDefault},
 #endif
 
 #ifdef APP_FLAPPY_GAME
