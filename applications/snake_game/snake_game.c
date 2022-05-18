@@ -302,7 +302,9 @@ static void snake_game_process_game_step(SnakeState* const snake_state) {
     if(eatFruit) {
         NotificationApp* notification = furi_record_open("notification");
         notification_message(notification, &sequence_single_vibro);
-        notification_message(notification, &sequence_blink_yellow_100);
+        notification_message(notification, &sequence_blink_white_100);
+        furi_record_close("notification");
+
         snake_state->len++;
         if(snake_state->len >= MAX_SNAKE_LEN) {
             snake_state->state = GameStateGameOver;
