@@ -313,6 +313,14 @@ const FlipperApplication FLIPPER_APPS[] = {
      .flags = FlipperApplicationFlagDefault},
 #endif
 
+#ifdef APP_SNAKE_GAME
+    {.app = snake_game_app,
+     .name = "Snake Game",
+     .stack_size = 1024,
+     .icon = &A_Snake_14,
+     .flags = FlipperApplicationFlagDefault},
+#endif
+
 };
 
 const size_t FLIPPER_APPS_COUNT = COUNT_OF(FLIPPER_APPS);
@@ -375,14 +383,6 @@ const FlipperApplication FLIPPER_PLUGINS[] = {
      .name = "Bluetooth Remote",
      .stack_size = 1024,
      .icon = NULL,
-     .flags = FlipperApplicationFlagDefault},
-#endif
-
-#ifdef APP_SNAKE_GAME
-    {.app = snake_game_app,
-     .name = "Snake Game",
-     .stack_size = 1024,
-     .icon = &A_Games_14,
      .flags = FlipperApplicationFlagDefault},
 #endif
 
