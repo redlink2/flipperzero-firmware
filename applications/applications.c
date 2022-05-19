@@ -54,12 +54,12 @@ extern int32_t music_player_app(void* p);
 extern int32_t snake_game_app(void* p);
 extern int32_t tetris_game_app(void* p);
 extern int32_t flappy_game_app(void* p);
+// extern int32_t floopper_bloopper(void* p);
+// extern int32_t raycast_game_app(void* p);
 extern int32_t spectrum_analyzer_app(void* p);
 extern int32_t universal_rf_remote_app(void* p);
 extern int32_t clock_app(void* p);
 extern int32_t level_up_app(void* p);
-// extern int32_t floopper_bloopper(void* p);
-// extern int32_t raycast_game_app(void* p);
 
 // On system start hooks declaration
 extern void bt_on_system_start();
@@ -392,14 +392,6 @@ const FlipperApplication FLIPPER_PLUGINS[] = {
      .stack_size = 1024,
      .icon = NULL,
      .flags = FlipperApplicationFlagDefault},
-#endif
-
-#ifdef APP_SPECTRUM_ANALYZER
-    {.app = spectrum_analyzer_app, 
-    .name = "Spectrum Analyzer", 
-    .stack_size = 1024, 
-    .icon = &A_Plugins_14,
-    .flags = FlipperApplicationFlagDefault},
 #endif
 
 #ifdef APP_FLAPPY_GAME
