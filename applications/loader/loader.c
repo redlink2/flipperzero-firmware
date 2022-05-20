@@ -403,7 +403,7 @@ static void loader_build_menu() {
     if(FLIPPER_GAMES_COUNT != 0) {
         menu_add_item(
             loader_instance->primary_menu,
-            "Extra",
+            "Games",
             &A_Games_14,
             i++,
             loader_submenu_callback,
