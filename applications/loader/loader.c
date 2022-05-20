@@ -154,7 +154,7 @@ void loader_cli_list(Cli* cli, string_t args, Loader* instance) {
         printf("\t%s\r\n", FLIPPER_APPS[i].name);
     }
 
-    printf("Extra:\r\n");
+    printf("Games:\r\n");
     for(size_t i = 0; i < FLIPPER_GAMES_COUNT; i++) {
         printf("\t%s\r\n", FLIPPER_GAMES[i].name);
     }
