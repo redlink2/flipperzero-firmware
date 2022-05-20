@@ -313,6 +313,12 @@ const FlipperApplication FLIPPER_APPS[] = {
      .flags = FlipperApplicationFlagDefault},
 #endif
 
+};
+
+const size_t FLIPPER_APPS_COUNT = COUNT_OF(FLIPPER_APPS);
+
+const FlipperApplication FLIPPER_GAMES[] = {
+
 #ifdef APP_TETRIS_GAME
     {.app = tetris_game_app,
      .name = "Tetris Game",
@@ -331,7 +337,7 @@ const FlipperApplication FLIPPER_APPS[] = {
 
 };
 
-const size_t FLIPPER_APPS_COUNT = COUNT_OF(FLIPPER_APPS);
+const size_t FLIPPER_GAMES_COUNT = COUNT_OF(FLIPPER_GAMES);
 
 // On system start hooks
 const FlipperOnStartHook FLIPPER_ON_SYSTEM_START[] = {
