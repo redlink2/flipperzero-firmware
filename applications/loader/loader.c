@@ -321,7 +321,7 @@ static Loader* loader_alloc() {
     view_set_previous_callback(menu_get_view(instance->primary_menu), loader_hide_menu);
     view_dispatcher_add_view(
         instance->view_dispatcher, LoaderMenuViewPrimary, menu_get_view(instance->primary_menu));
-    // Extra menu
+    // Games menu
     instance->games_menu = submenu_alloc();
     view_set_context(submenu_get_view(instance->games_menu), instance->games_menu);
     view_set_previous_callback(
