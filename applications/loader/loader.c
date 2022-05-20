@@ -83,7 +83,8 @@ const FlipperApplication* loader_find_application_by_name(const char* name) {
     const FlipperApplication* application = NULL;
     application = loader_find_application_by_name_in_list(name, FLIPPER_APPS, FLIPPER_APPS_COUNT);
     if(!application) {
-        application = loader_find_application_by_name_in_list(name, FLIPPER_GAMES, FLIPPER_GAMES_COUNT);
+        application =
+            loader_find_application_by_name_in_list(name, FLIPPER_GAMES, FLIPPER_GAMES_COUNT);
     }
     if(!application) {
         application =
@@ -326,9 +327,7 @@ static Loader* loader_alloc() {
     view_set_previous_callback(
         submenu_get_view(instance->games_menu), loader_back_to_primary_menu);
     view_dispatcher_add_view(
-        instance->view_dispatcher,
-        LoaderMenuViewGames,
-        submenu_get_view(instance->games_menu));
+        instance->view_dispatcher, LoaderMenuViewGames, submenu_get_view(instance->games_menu));
     // Plugins menu
     instance->plugins_menu = submenu_alloc();
     view_set_context(submenu_get_view(instance->plugins_menu), instance->plugins_menu);
