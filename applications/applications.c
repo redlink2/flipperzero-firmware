@@ -49,13 +49,15 @@ extern int32_t battery_test_app(void* p);
 extern int32_t text_box_test_app(void* p);
 extern int32_t file_browser_app(void* p);
 
-// Plugins
-extern int32_t music_player_app(void* p);
+// Games
 extern int32_t snake_game_app(void* p);
 extern int32_t tetris_game_app(void* p);
 extern int32_t flappy_game_app(void* p);
 // extern int32_t floopper_bloopper(void* p);
 // extern int32_t raycast_game_app(void* p);
+
+// Plugins
+extern int32_t music_player_app(void* p);
 extern int32_t spectrum_analyzer_app(void* p);
 extern int32_t universal_rf_remote_app(void* p);
 extern int32_t clock_app(void* p);
@@ -335,6 +337,30 @@ const FlipperApplication FLIPPER_GAMES[] = {
      .flags = FlipperApplicationFlagDefault},
 #endif
 
+#ifdef APP_FLAPPY_GAME
+    {.app = flappy_game_app,
+     .name = "Flipper Flappy Bird",
+     .stack_size = 1024,
+     .icon = &A_Games_14,
+     .flags = FlipperApplicationFlagDefault},
+#endif
+
+// #ifdef APP_RAYCAST_GAME
+//     {.app = raycast_game_app,
+//      .name = "Raycast Game",
+//      .stack_size = 4096,
+//      .icon = NULL,
+//      .flags = FlipperApplicationFlagDefault},
+// #endif
+
+// #ifdef FLOOPPER_BLOOPPER
+//     {.app = floopper_bloopper,
+//      .name = "Floopper Bloopper",
+//      .stack_size = 1024,
+//      .icon = &A_Plugins_14,
+//      .flags = FlipperApplicationFlagDefault},
+// #endif
+
 };
 
 const size_t FLIPPER_GAMES_COUNT = COUNT_OF(FLIPPER_GAMES);
@@ -400,14 +426,6 @@ const FlipperApplication FLIPPER_PLUGINS[] = {
      .flags = FlipperApplicationFlagDefault},
 #endif
 
-#ifdef APP_FLAPPY_GAME
-    {.app = flappy_game_app,
-     .name = "Flipper Flappy Bird",
-     .stack_size = 1024,
-     .icon = &A_Games_14,
-     .flags = FlipperApplicationFlagDefault},
-#endif
-
 #ifdef APP_LEVEL_UP
     {.app = level_up_app,
      .name = "Dolphin EXP",
@@ -415,22 +433,6 @@ const FlipperApplication FLIPPER_PLUGINS[] = {
      .icon = &A_Plugins_14,
      .flags = FlipperApplicationFlagDefault},
 #endif
-
-// #ifdef APP_RAYCAST_GAME
-//     {.app = raycast_game_app,
-//      .name = "Raycast Game",
-//      .stack_size = 4096,
-//      .icon = NULL,
-//      .flags = FlipperApplicationFlagDefault},
-// #endif
-
-// #ifdef FLOOPPER_BLOOPPER
-//     {.app = floopper_bloopper,
-//      .name = "Floopper Bloopper",
-//      .stack_size = 1024,
-//      .icon = &A_Plugins_14,
-//      .flags = FlipperApplicationFlagDefault},
-// #endif
 
 };
 
