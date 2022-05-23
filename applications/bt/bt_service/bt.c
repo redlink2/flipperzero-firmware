@@ -80,7 +80,7 @@ static bool bt_pin_code_verify_event_handler(Bt* bt, uint32_t pin) {
     string_init_printf(pin_str, "Verify code\n%06d", pin);
     dialog_message_set_text(
         bt->dialog_message, string_get_cstr(pin_str), 64, 4, AlignCenter, AlignTop);
-    dialog_message_set_buttons(bt->dialog_message, "Cancel", "Ok", NULL);
+    dialog_message_set_buttons(bt->dialog_message, "Cancel", "OK", NULL);
     DialogMessageButton button = dialog_message_show(bt->dialogs, bt->dialog_message);
     string_clear(pin_str);
     return button == DialogMessageButtonCenter;
@@ -91,19 +91,11 @@ static void bt_battery_level_changed_callback(const void* _event, void* context)
     furi_assert(context);
 
     Bt* bt = context;
-    BtMessage message = {};
     const PowerEvent* event = _event;
     if(event->type == PowerEventTypeBatteryLevelChanged) {
-        message.type = BtMessageTypeUpdateBatteryLevel;
-        message.data.battery_level = event->data.battery_level;
-        furi_check(osMessageQueuePut(bt->message_queue, &message, 0, osWaitForever) == osOK);
-    } else if(event->type == PowerEventTypeStartCharging || event->type == PowerEventTypeFullyCharged) {
-        message.type = BtMessageTypeUpdatePowerState;
-        message.data.battery_is_charging = true;
-        furi_check(osMessageQueuePut(bt->message_queue, &message, 0, osWaitForever) == osOK);
-    } else if(event->type == PowerEventTypeStopCharging) {
-        message.type = BtMessageTypeUpdatePowerState;
-        message.data.battery_is_charging = false;
+        BtMessage message = {
+            .type = BtMessageTypeUpdateBatteryLevel,
+            .data.battery_level = event->data.battery_level};
         furi_check(osMessageQueuePut(bt->message_queue, &message, 0, osWaitForever) == osOK);
     }
 }
@@ -376,8 +368,6 @@ int32_t bt_srv() {
         } else if(message.type == BtMessageTypeUpdateBatteryLevel) {
             // Update battery level
             furi_hal_bt_update_battery_level(message.data.battery_level);
-        } else if(message.type == BtMessageTypeUpdatePowerState) {
-            furi_hal_bt_update_power_state(message.data.battery_is_charging);
         } else if(message.type == BtMessageTypePinCodeShow) {
             // Display PIN code
             bt_pin_code_show(bt, message.data.pin_code);
