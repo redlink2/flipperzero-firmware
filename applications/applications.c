@@ -219,7 +219,7 @@ const FlipperApplication FLIPPER_APPS[] = {
     {.app = universal_rf_remote_app,
      .name = "Universal-RF",
      .stack_size = 1024,
-     .icon = &A_UniversalRemote_14,
+     .icon = NULL,
      .flags = FlipperApplicationFlagDefault},
 #endif
 
@@ -408,21 +408,21 @@ const FlipperApplication FLIPPER_PLUGINS[] = {
      .flags = FlipperApplicationFlagDefault},
 #endif
 
-// #ifdef APP_RAYCAST_GAME
-//     {.app = raycast_game_app,
-//      .name = "Raycast Game",
-//      .stack_size = 4096,
-//      .icon = NULL,
-//      .flags = FlipperApplicationFlagDefault},
-// #endif
+    // #ifdef APP_RAYCAST_GAME
+    //     {.app = raycast_game_app,
+    //      .name = "Raycast Game",
+    //      .stack_size = 4096,
+    //      .icon = NULL,
+    //      .flags = FlipperApplicationFlagDefault},
+    // #endif
 
-// #ifdef FLOOPPER_BLOOPPER
-//     {.app = floopper_bloopper,
-//      .name = "Floopper Bloopper",
-//      .stack_size = 1024,
-//      .icon = &A_Plugins_14,
-//      .flags = FlipperApplicationFlagDefault},
-// #endif
+    // #ifdef FLOOPPER_BLOOPPER
+    //     {.app = floopper_bloopper,
+    //      .name = "Floopper Bloopper",
+    //      .stack_size = 1024,
+    //      .icon = &A_Plugins_14,
+    //      .flags = FlipperApplicationFlagDefault},
+    // #endif
 
 };
 
