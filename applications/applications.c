@@ -219,7 +219,7 @@ const FlipperApplication FLIPPER_APPS[] = {
     {.app = universal_rf_remote_app,
      .name = "Universal-RF",
      .stack_size = 1024,
-     .icon = NULL,
+     .icon = &A_UniversalRF_14,
      .flags = FlipperApplicationFlagDefault},
 #endif
 
