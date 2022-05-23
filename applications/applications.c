@@ -39,8 +39,6 @@ extern int32_t passport_app(void* p);
 extern int32_t scened_app(void* p);
 extern int32_t storage_test_app(void* p);
 extern int32_t subghz_app(void* p);
-extern int32_t jukebox_app(void *p);
-extern int32_t universal_rf_remote_app(void *p);
 extern int32_t usb_mouse_app(void* p);
 extern int32_t usb_test_app(void* p);
 extern int32_t vibro_test_app(void* p);
@@ -223,7 +221,7 @@ const FlipperApplication FLIPPER_APPS[] = {
     {.app = universal_rf_remote_app,
      .name = "Universal-RF",
      .stack_size = 1024,
-     .icon = &A_UniversalRemote_14,
+     .icon = NULL,
      .flags = FlipperApplicationFlagDefault},
 #endif
 
