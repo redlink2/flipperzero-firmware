@@ -1,5 +1,5 @@
 V:0
-T:1653419516
+T:1653424395
 D:badusb
 D:dolphin
 D:infrared
@@ -74,7 +74,7 @@ F:61172f89cf0a17bd7f978edccdeed166:560:dolphin/L1_Laptop_128x51/frame_4.bm
 F:9d54913928c7e9477b6b8a43f3767621:554:dolphin/L1_Laptop_128x51/frame_5.bm
 F:5243d6272bbb213e9c17af07ee011402:553:dolphin/L1_Laptop_128x51/frame_6.bm
 F:aa68e0f28f117891ba0f4d7613224fc6:560:dolphin/L1_Laptop_128x51/frame_7.bm
-F:198484d5cf1efc34fcfb92562727ca40:743:dolphin/L1_Laptop_128x51/meta.txt
+F:d6bc1e281f65f9c7659345225ca3227c:741:dolphin/L1_Laptop_128x51/meta.txt
 F:6ce34e62c5bf4764a4163101afe63e60:514:dolphin/L1_Leaving_sad_128x64/frame_0.bm
 F:19a0e0c518d222d91d24b8712ab6bb80:526:dolphin/L1_Leaving_sad_128x64/frame_1.bm
 F:837bfb424c8d8a3bfbda7d6a28ba5a5c:316:dolphin/L1_Leaving_sad_128x64/frame_10.bm
