@@ -4,7 +4,6 @@
 #include "decoder_emmarin.h"
 #include "decoder_hid26.h"
 #include "decoder_indala.h"
-#include "decoder_ioprox.h"
 #include "key_info.h"
 
 //#define RFID_GPIO_DEBUG 1
@@ -35,7 +34,6 @@ private:
     DecoderEMMarin decoder_em;
     DecoderHID26 decoder_hid26;
     DecoderIndala decoder_indala;
-    DecoderIoProx decoder_ioprox;
 
     uint32_t last_dwt_value;
 

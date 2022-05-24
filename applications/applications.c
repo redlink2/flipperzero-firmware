@@ -39,6 +39,9 @@ extern int32_t passport_app(void* p);
 extern int32_t scened_app(void* p);
 extern int32_t storage_test_app(void* p);
 extern int32_t subghz_app(void* p);
+extern int32_t jukebox_app(void *p);
+extern int32_t universal_rf_remote_app(void *p);
+extern int32_t unirfremix_app(void *p);
 extern int32_t usb_mouse_app(void* p);
 extern int32_t usb_test_app(void* p);
 extern int32_t vibro_test_app(void* p);
@@ -408,21 +411,25 @@ const FlipperApplication FLIPPER_PLUGINS[] = {
      .flags = FlipperApplicationFlagDefault},
 #endif
 
-    // #ifdef APP_RAYCAST_GAME
-    //     {.app = raycast_game_app,
-    //      .name = "Raycast Game",
-    //      .stack_size = 4096,
-    //      .icon = NULL,
-    //      .flags = FlipperApplicationFlagDefault},
-    // #endif
+#ifdef APP_WAV_PLAYER
+    {.app = wav_player_app,
+     .name = "Wave Player",
+     .stack_size = 4096,
+     .icon = &A_MusicPlayer_14,
+     .flags = FlipperApplicationFlagDefault},
+#endif
 
-    // #ifdef FLOOPPER_BLOOPPER
-    //     {.app = floopper_bloopper,
-    //      .name = "Floopper Bloopper",
-    //      .stack_size = 1024,
-    //      .icon = &A_Plugins_14,
-    //      .flags = FlipperApplicationFlagDefault},
-    // #endif
+// #ifdef APP_RAYCAST_GAME
+//     {.app = raycast_game_app, .name = "Raycast Game", .stack_size = 4096, .icon = NULL},
+// #endif
+
+// #ifdef FLOOPPER_BLOOPPER
+//     {.app = floopper_bloopper,
+//      .name = "Floopper Bloopper",
+//      .stack_size = 1024,
+//      .icon = &A_Plugins_14,
+//      .flags = FlipperApplicationFlagDefault},
+// #endif
 
 };
 
