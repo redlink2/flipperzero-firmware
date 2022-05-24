@@ -56,8 +56,6 @@ APP_UNIVERSALRF = 1
 APP_CLOCK = 1
 APP_LEVEL_UP = 1
 APP_FLAPPY_GAME = 1
-# APP_RAYCAST_GAME = 1
-APP_WAV_PLAYER = 1
 
 
 # Debug
@@ -221,6 +219,12 @@ CFLAGS		+= -DAPP_U2F
 SRV_GUI = 1
 endif
 
+APP_CLOCK ?= 0
+ifeq ($(APP_CLOCK), 1)
+CFLAGS		+= -DAPP_CLOCK
+SRV_GUI = 1
+endif
+
 APP_BLE_HID ?=0
 ifeq ($(APP_BLE_HID), 1)
 CFLAGS		+= -DAPP_BLE_HID
@@ -301,19 +305,6 @@ ifeq ($(APP_LEVEL_UP), 1)
 CFLAGS		+= -DAPP_LEVEL_UP
 SRV_GUI		= 1
 endif
-
-APP_WAV_PLAYER ?= 0
-ifeq ($(APP_WAV_PLAYER), 1)
-CFLAGS		+= -DAPP_WAV_PLAYER
-SRV_GUI		= 1
-endif
-
-# APP_RAYCAST_GAME ?= 0
-# ifeq ($(APP_RAYCAST_GAME), 1)
-# CFLAGS		+= -DAPP_RAYCAST_GAME
-# SRV_GUI		= 1
-# endif
-
 
 APP_IBUTTON ?= 0
 ifeq ($(APP_IBUTTON), 1)
