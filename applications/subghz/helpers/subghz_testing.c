@@ -4,7 +4,6 @@ const uint32_t subghz_frequencies_testing[] = {
     /* 300 - 348 */
     300000000,
     304500000,
-    310000000,
     312025000,
     313250000,
     313625000,
@@ -35,4 +34,4 @@ const uint32_t subghz_frequencies_testing[] = {
 
 const uint32_t subghz_frequencies_count_testing =
     sizeof(subghz_frequencies_testing) / sizeof(uint32_t);
-const uint32_t subghz_frequencies_433_92_testing = 13;
+const uint32_t subghz_frequencies_433_92_testing = 12;
