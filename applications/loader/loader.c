@@ -404,7 +404,7 @@ static void loader_build_menu() {
         menu_add_item(
             loader_instance->primary_menu,
             "Games",
-            &A_Games_14,
+            &A_Tetris_14,
             i++,
             loader_submenu_callback,
             (void*)LoaderMenuViewGames);
