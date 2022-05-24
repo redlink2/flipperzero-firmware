@@ -59,6 +59,7 @@ extern int32_t flappy_game_app(void* p);
 // extern int32_t raycast_game_app(void* p);
 extern int32_t spectrum_analyzer_app(void* p);
 extern int32_t universal_rf_remote_app(void* p);
+extern int32_t unirfremix_app(void* p);
 extern int32_t clock_app(void* p);
 extern int32_t level_up_app(void* p);
 
@@ -219,7 +220,7 @@ const size_t FLIPPER_SYSTEM_APPS_COUNT = COUNT_OF(FLIPPER_SYSTEM_APPS);
 const FlipperApplication FLIPPER_APPS[] = {
 
 #ifdef APP_UNIVERSALRF
-    {.app = universal_rf_remote_app,
+    {.app = unirfremix_app,
      .name = "Universal-RF",
      .stack_size = 1024,
      .icon = &A_UniversalRF_14,
@@ -413,7 +414,7 @@ const FlipperApplication FLIPPER_PLUGINS[] = {
 
 #ifdef APP_WAV_PLAYER
     {.app = wav_player_app,
-     .name = "Wave Player",
+     .name = ".WAV Player",
      .stack_size = 4096,
      .icon = &A_MusicPlayer_14,
      .flags = FlipperApplicationFlagDefault},
