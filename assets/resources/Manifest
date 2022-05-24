@@ -1,5 +1,5 @@
 V:0
-T:1652902611
+T:1653424395
 D:badusb
 D:dolphin
 D:infrared
@@ -10,6 +10,8 @@ D:u2f
 F:e538ad2ce5a06ec45e1b5b24824901b1:1552:badusb/DEMO_WIN_Flipper.txt
 F:b0933009e964daea45d878b52f9f8225:1680:badusb/DEMO_WIN_Matrix.txt
 F:ef4a340c0abacebb60a55ee9150c1ac7:8589:badusb/DEMO_WIN_MonaLisa.txt
+F:bb8ffef2d052f171760ce3dc5220cbad:1591:badusb/demo_macos.txt
+F:e538ad2ce5a06ec45e1b5b24824901b1:1552:badusb/demo_windows.txt
 D:dolphin/L1_Boxing_128x64
 D:dolphin/L1_Cry_128x64
 D:dolphin/L1_Furippa1_128x64
@@ -72,7 +74,7 @@ F:61172f89cf0a17bd7f978edccdeed166:560:dolphin/L1_Laptop_128x51/frame_4.bm
 F:9d54913928c7e9477b6b8a43f3767621:554:dolphin/L1_Laptop_128x51/frame_5.bm
 F:5243d6272bbb213e9c17af07ee011402:553:dolphin/L1_Laptop_128x51/frame_6.bm
 F:aa68e0f28f117891ba0f4d7613224fc6:560:dolphin/L1_Laptop_128x51/frame_7.bm
-F:198484d5cf1efc34fcfb92562727ca40:743:dolphin/L1_Laptop_128x51/meta.txt
+F:d6bc1e281f65f9c7659345225ca3227c:741:dolphin/L1_Laptop_128x51/meta.txt
 F:6ce34e62c5bf4764a4163101afe63e60:514:dolphin/L1_Leaving_sad_128x64/frame_0.bm
 F:19a0e0c518d222d91d24b8712ab6bb80:526:dolphin/L1_Leaving_sad_128x64/frame_1.bm
 F:837bfb424c8d8a3bfbda7d6a28ba5a5c:316:dolphin/L1_Leaving_sad_128x64/frame_10.bm
@@ -111,7 +113,7 @@ F:494f27958f4cea9b94d09cf27725c5cd:652:dolphin/L1_Read_books_128x64/frame_5.bm
 F:a6a7491fe80255e1745c9f293da52805:646:dolphin/L1_Read_books_128x64/frame_6.bm
 F:238497e6643fd491cd6002e98c615c05:647:dolphin/L1_Read_books_128x64/frame_7.bm
 F:300651e8f53d9a29ae38d4b9292c73cf:643:dolphin/L1_Read_books_128x64/frame_8.bm
-F:f6b849ac44f46f107b7b59d303f1b42b:524:dolphin/L1_Read_books_128x64/meta.txt
+F:94a43ae914d5f941e11b19bef77ddea0:525:dolphin/L1_Read_books_128x64/meta.txt
 F:2aba555567ab70cff003ded4138c6721:663:dolphin/L1_Recording_128x51/frame_0.bm
 F:8456c6e86825957e5662e2f08eb6c116:657:dolphin/L1_Recording_128x51/frame_1.bm
 F:2e4a1aca5afa5a6ab254884210875eb4:629:dolphin/L1_Recording_128x51/frame_10.bm
@@ -129,12 +131,12 @@ F:9858fd34b55cebcb9be50c5710212a13:580:dolphin/L1_Sleep_128x64/frame_0.bm
 F:e47ef8c846083b8fde028b1724861444:589:dolphin/L1_Sleep_128x64/frame_1.bm
 F:9749bd05b47fd07cc3a41ab201f86bf4:582:dolphin/L1_Sleep_128x64/frame_2.bm
 F:edf11266b20b846ace622e41cd36906b:597:dolphin/L1_Sleep_128x64/frame_3.bm
-F:a2d9cdf33b2fa62d2e8481dffab565c8:720:dolphin/L1_Sleep_128x64/meta.txt
+F:dc23629c2a57da383dab66af0f96b9aa:721:dolphin/L1_Sleep_128x64/meta.txt
 F:283b41f1b2c581c510ff176293b7288a:443:dolphin/L1_Waves_128x50/frame_0.bm
 F:c9fc5127e1d8a4217b6b177716725ba0:448:dolphin/L1_Waves_128x50/frame_1.bm
 F:8e0797bf26d5d8d3cbeb99798c222b80:463:dolphin/L1_Waves_128x50/frame_2.bm
 F:da02b1deb3119b31f2b8f182d5bf3242:472:dolphin/L1_Waves_128x50/frame_3.bm
-F:5097425b69d80d88b2b32f2e03c6bb2c:729:dolphin/L1_Waves_128x50/meta.txt
+F:065d5c89928ec9add723d97e2594ab05:730:dolphin/L1_Waves_128x50/meta.txt
 F:be80d2fa903e3250b69c063a1eef0621:350:dolphin/L2_Furippa2_128x64/frame_0.bm
 F:9e628f5e154f12d6c57b13befed1f5f6:385:dolphin/L2_Furippa2_128x64/frame_1.bm
 F:80b48a77682b853e6236cd1c89083e6f:465:dolphin/L2_Furippa2_128x64/frame_10.bm
@@ -241,23 +243,58 @@ D:infrared/TVs
 D:infrared/_CSV-IRDB_
 D:infrared/assets
 F:0bc0c173a29a92e3a453e188cb56c9e2:3368:infrared/AIR_Vornado.ir
+F:b99ebb642148aa9232b4dc7f2acf98cd:4970:infrared/Amino_amigo.ir
+F:83f6ccdbdf32370fa4cf7afd651a6e0c:798:infrared/Amz_snd_bar.ir
+F:1e6f06b66e0b4955e408f1c9198f2898:584:infrared/Apple_tv.ir
+F:7274af18f1398bfdcba3eef27e1d9a93:557:infrared/BenQ.ir
 F:b17eb21b5a532a8b6db9f77a12e27404:183:infrared/CAM_Nikon.ir
 F:321a33ac14716639364361b310a91706:1524:infrared/CCTV_Cv610.ir
 F:d62b96d048941d9b23222185086926d6:1221:infrared/CCTV_Szxlcom.ir
+F:a0af1af37f404781d60bbe4cf313d162:1525:infrared/Casio-Projector_yt130.ir
+F:321a33ac14716639364361b310a91706:1524:infrared/Cv610_remote.ir
+F:3cb1be0f536a0a6160e35828905a20d3:984:infrared/Da_lite_proj_scrn.ir
+F:40f9d21e62424062263065c536304676:11762:infrared/Direct_tv.ir
+F:d92b34f3a7170e54afddc6731b49d6e1:3537:infrared/Dragonfly_scrn.ir
+F:c66a8721533e6df37512b24016fcad70:5682:infrared/Dreo_heater.ir
+F:a52d81317dad059d698592f8159f6c5e:2495:infrared/Dyson_air_multiplier.ir
+F:546b22ba87086f4672ce1ffc3bb896c1:3266:infrared/Dyson_hp09.ir
+F:71767c67b0394773908c6cffeeab22e4:1595:infrared/Epson.ir
+F:7729f722ce64f71693a7342e9a8e65f2:546:infrared/Hdmi_switch.ir
 F:4cb12e8e2e8ff4bdb81d3145e2a98e80:6670:infrared/LED_DMX.ir
 F:6808aa6680c9ab11851bdf2462a6a537:178626:infrared/LED_LightStrip.ir
 F:5ee539d8b91bd94757cfb81413417a0f:6695:infrared/LED_Magic.ir
+F:c3936ed736cf45ed8ac21f6fe9582d52:568:infrared/LG_AC.ir
+F:30d1ee9c37b37233696bbc2bfe5c257e:1679:infrared/LG_BlueRay.ir
+F:b489b8d113de9b05cd5487434e979ce9:888:infrared/LG_C1.ir
+F:e934cd395e02c197ca62174aa77549a2:2501:infrared/Lasko_fan.ir
+F:b72abf7ab1847b60bc5a013ac95df1a8:9503:infrared/Lasko_heater.ir
 F:7729f722ce64f71693a7342e9a8e65f2:546:infrared/MISC_HdmiSwitch.ir
 F:ac371e88aa7e629d2dbc5c43767f0fbd:19927:infrared/MISC_NEC.ir
 F:1082b46f593e4673de9ede5aefc9bbb1:2608:infrared/MISC_Stlth_acou.ir
 F:d9aa4555541367c56cd8ca0892e8f4a7:1118:infrared/MISC_Sunbrite.ir
+F:ac371e88aa7e629d2dbc5c43767f0fbd:19927:infrared/NEC.ir
+F:b17eb21b5a532a8b6db9f77a12e27404:183:infrared/Nikon.ir
+F:74fa5f6c842e70e451b9481c17b71b9c:379:infrared/Old_sonyxbr.ir
 F:a0af1af37f404781d60bbe4cf313d162:1525:infrared/PROJ_Casio.ir
 F:71767c67b0394773908c6cffeeab22e4:1595:infrared/PROJ_Epson.ir
+F:ed1035363a609949f1f15e301824cfeb:23673:infrared/Panasonic_TC-P50S2.ir
+F:db40928c4503f49437a5c69973ff8183:14710:infrared/Pioneer_1770nex.ir
+F:ba96cf68fc19e2802def5d0a13276c5a:897:infrared/Roku.ir
+F:4b3244bc0592b2b4b98837fa942387ce:894:infrared/Roku2.ir
 F:83f6ccdbdf32370fa4cf7afd651a6e0c:798:infrared/SND_Amzn.ir
 F:db40928c4503f49437a5c69973ff8183:14710:infrared/SND_Pioneer.ir
 F:313eb09138e3f1e082ce802a99177187:1048:infrared/SND_Sonyxbr.ir
 F:e2f23cef1c2abf5a84a4c478c508f412:724:infrared/SND_Vizio.ir
 F:364eff5aa9a946efa188b084f2f94b19:1680:infrared/SND_Yamaha_rx.ir
+F:2c45c1848e4463f742ec888d2eb318c5:1388:infrared/Samsung.ir
+F:21816e2ea82c23f0fce5ccc051736517:1149:infrared/Samsung_TV.ir
+F:655f9c446a64ef6a0bd0afd157d1b115:127:infrared/Samsung_e6.ir
+F:948df7276fee7f0c20e285c85a1700f9:984:infrared/Scrn_innov.ir
+F:652fd6c4cfaf48b3d9e1717f9a301434:1795:infrared/Sharp_Roku_TV.ir
+F:313eb09138e3f1e082ce802a99177187:1048:infrared/Sonyxbr.ir
+F:1082b46f593e4673de9ede5aefc9bbb1:2608:infrared/Stlth_acou.ir
+F:d9aa4555541367c56cd8ca0892e8f4a7:1118:infrared/Sunbrite.ir
+F:d62b96d048941d9b23222185086926d6:1221:infrared/Szxlcom_cams.ir
 F:1e6f06b66e0b4955e408f1c9198f2898:584:infrared/TV_Apple.ir
 F:40f9d21e62424062263065c536304676:11762:infrared/TV_Direct.ir
 F:ba96cf68fc19e2802def5d0a13276c5a:897:infrared/TV_Roku.ir
@@ -268,6 +305,14 @@ F:655f9c446a64ef6a0bd0afd157d1b115:127:infrared/TV_Samsung3.ir
 F:652fd6c4cfaf48b3d9e1717f9a301434:1795:infrared/TV_Sharp_Roku.ir
 F:65b31c3bfb66a62102bed654e9a57a6b:710:infrared/TV_Tcl.ir
 F:8cde98d701dcfd34f711d0850111d892:1464:infrared/TV_Vizio.ir
+F:1c4fd470eba9364fb0a958d9cc77e5ca:8715:infrared/Tcl.ir
+F:661fec66bc4b73c343d9e2617334911d:892:infrared/Tcl_32s327.ir
+F:65b31c3bfb66a62102bed654e9a57a6b:710:infrared/Tcl_tv.ir
+F:8cde98d701dcfd34f711d0850111d892:1464:infrared/Vizio.ir
+F:e2f23cef1c2abf5a84a4c478c508f412:724:infrared/Vizio_Soundbar.ir
+F:0bc0c173a29a92e3a453e188cb56c9e2:3368:infrared/Vornado.ir
+F:cbf4d9e2ef67c8244d62c5354f7217dd:1331:infrared/Westinghouse.ir
+F:296c9f7edf7533f6ef5bca764a7d197c:3282:infrared/Whynter_AC.ir
 F:219cc59cad3851e5e32dfe5d7feaca67:585:infrared/Xbox.ir
 D:infrared/ACs/Dreo
 D:infrared/ACs/Dyson
@@ -6275,10 +6320,200 @@ F:0a22a69bdce302fe1531f8800d82ebe0:3019:infrared/_CSV-IRDB_/viewmaxpro/Unknown_v
 D:infrared/_CSV-IRDB_/xsat/Unknown_xsat
 F:26a051e23c77726157eac21064e6bb4f:3217:infrared/_CSV-IRDB_/xsat/Unknown_xsat/34,-1.ir
 F:d895fda2f48c6cc4c55e8a398ff52e43:74300:infrared/assets/tv.ir
+D:music_player/anthem
+D:music_player/games
+D:music_player/media
+D:music_player/songs
+F:d41d8cd98f00b204e9800998ecf8427e:0:music_player/Avrill Lavigne - Sk8er Boi.txt
+F:d41d8cd98f00b204e9800998ecf8427e:0:music_player/Axel F.txt
+F:d41d8cd98f00b204e9800998ecf8427e:0:music_player/Backstreet Boys - I Want It That Way.txt
+F:d41d8cd98f00b204e9800998ecf8427e:0:music_player/Benny Benassi - Satisfaction.txt
+F:d41d8cd98f00b204e9800998ecf8427e:0:music_player/Circus Theme.txt
 F:6e45147681b5d612e79942763f80f031:413:music_player/Evangelion.txt
 F:8f97f0e28713829493fd7f2f9610fee5:523:music_player/HelloWorld.txt
+F:a157a80f5a668700403d870c23b9567d:470:music_player/Marble_Machine.fmf
+F:d41d8cd98f00b204e9800998ecf8427e:0:music_player/Rasputin.txt
+F:d41d8cd98f00b204e9800998ecf8427e:0:music_player/Sex And The City.txt
+F:9c9627f97a03f1abe5570095002e56ef:469:music_player/marble_machine.fmf
+F:63afb32b1f6350d4aed237bd7c57c31b:143:music_player/anthem/anthem-Japan.txt
+F:d5b86340f632a5bedde38e7b7549c9d2:199:music_player/anthem/anthem-Netherlands.txt
+F:c37a40eaf500cf76120199c924523ad6:233:music_player/anthem/anthem-Russia V2.txt
+F:e4a61bd7a9d768bf4cbf4128cfb43124:322:music_player/anthem/anthem-Saudi Arabia.txt
+F:634974144f7ac675ecddfe09948b615e:251:music_player/anthem/anthem-South Korea.txt
+F:254322e097f670b8915917b67e5bce4e:267:music_player/anthem/anthem-Spain.txt
+F:22a4fd27410fdc5790cd5064edddd82a:261:music_player/anthem/anthem-Sweden.txt
+F:8f39dad01a76de4ac8e10a7a6c890c25:199:music_player/anthem/anthem-USA.txt
+F:8800ef672a65c74f663653115194248b:168:music_player/anthem/anthem-USSR.txt
+F:334b624ac30e0359586a121b72947a26:217:music_player/games/ Crash Bandicoot.txt
+F:7bdaa9949c5bb4e37e031200a6e21d70:132:music_player/games/ Donkey Kong Country.txt
+F:38d99ae35b00c56820f744c2f53a07f7:189:music_player/games/ Pacman.txt
+F:547bdf341a6acd0afab9f770df16727c:254:music_player/games/ Sonic - Green Hill Zone.txt
+F:b1a5810407f3ed34cc5b0e1d72d6cae2:176:music_player/games/ Sonic - Marble Zone.txt
+F:4fce27e1d32bf809c46e007363095efd:230:music_player/games/ Sonic - Starlight Zone.txt
+F:c191cf88b797539aa0469afa1f66cbec:290:music_player/games/ Sonic - Super Sonic.txt
+F:eda07332fbb8e5ce7bc9a4795c8e527c:256:music_player/games/ Sonic 2 - Aquatic Ruins Zone.txt
+F:eafbbde13e0e166bef25515a7aa035bb:363:music_player/games/ Sonic 2 - Chemical Zone.txt
+F:1b445ed96ddb7948ac46b9a0a1108e75:255:music_player/games/ Sonic 3 - Battery Zone.txt
+F:9574f62efac0f82ca6b1fb05a793244e:429:music_player/games/ Sonic 3 - Bonus Stage.txt
+F:c8ffb406b4a3c665c7c2d2bc62f9a311:456:music_player/games/ Sonic 3 - Hydro City Theme.txt
+F:620b3303613d571d528e07d1a3b6f63e:105:music_player/games/ Sonic 3 - Ice Theme.txt
+F:2f3135d7c15e85a4bcf8b330ef47c962:193:music_player/games/ Street Fighter 2.txt
+F:b70c2e731700759fde2fe36b1da2a276:205:music_player/games/ Super Mario Brothers 2.txt
+F:e925e97942394a812b2a7042dce16025:228:music_player/games/ Super Mario World.txt
+F:dd8a5cb7e9acbf08681ae380b249b3eb:184:music_player/games/ Tetris.txt
+F:12a5857c829072653e032e3c66c850f2:215:music_player/games/ Zelda.txt
+F:9260511bc185d0dc9ad333fef9bee8f9:113:music_player/games/Digimon.txt
+F:8a13085f306a17caee9065737156ae3c:178:music_player/games/FF3 - Theme.txt
+F:5bc2d2921dc27a9db593067ab8b7de8b:83:music_player/games/FF7 - Aeris Theme.txt
+F:8504bc455fc39d687494c215323b5d75:195:music_player/games/FF7 - Chocobo Theme.txt
+F:9ca746a3c2da919b9e374a56274fcf70:107:music_player/games/FF7 - Tifa.txt
+F:4efe9fafe7f5713acda59f6f42f72008:180:music_player/games/Mortal Kombat - Theme.txt
+F:1e7d1352f757620d1d82e7b953ca4371:183:music_player/games/Sonic - Marblezone.txt
+F:9041acc338a3e554fd086e091b720d69:185:music_player/games/Spiderman - Theme.txt
+F:cb6a1fda13ab2a0bffde931ca6f09ba1:262:music_player/games/Spiderman 2 - Theme.txt
+F:735cfff94678707986d7b00078203dae:257:music_player/games/Spiderman 2.txt
+F:5413eaabd6104807308f5d4ba48c0d04:147:music_player/games/Spiderman.txt
+F:ee63c3ad8b15ff54b6a3a1bf3c19ecfa:172:music_player/games/Super Mario 64 - Theme.txt
+F:1362a3b821443bb3ec54e2b51c6beff4:191:music_player/games/Super Mario Bros - Theme.txt
+F:120a7a656c007cb396b6dd3f25731e96:235:music_player/games/Super Mario Bros 3 - Theme.txt
+F:63cd4ac02aff23349f580fa29aff4776:175:music_player/games/Super Mario Brothers - Overworld Theme.txt
+F:4b83ef0527194329094e9c2c5e7639a9:208:music_player/games/Super Mario Brothers - Underground Theme.txt
+F:20f2f94dcf0e3781e48f3a8a616b9626:251:music_player/games/Super Mario Brothers - Underwater Theme.txt
+F:71928e3a99759eef8399308a7dfe6398:167:music_player/games/Supermario Brothers.txt
+F:a6372b5da642ff80b06d2b99972a865f:217:music_player/games/Tetris - Remix.txt
+F:d4abe46df80c172248c37bad91357b76:218:music_player/games/Tetris.txt
+F:a7171e16a2a6760322ebdf696167aba0:278:music_player/games/Zelda (Link's Awakening) - Overworld.txt
+F:84043c391eddbf5edb34ada312933ba6:210:music_player/games/Zelda - Majora Mask.txt
+F:7f0c1e58eb4d742ea276960050730af9:195:music_player/games/Zelda - Song Of The Forest.txt
+F:7a28170158603f005140348875286ae8:170:music_player/games/Zelda - Theme.txt
+F:0016ca95a60a1a96d8538d8448850aed:192:music_player/games/Zelda Forest - Theme.txt
+F:58f0b7f855800641e430c7364db18d36:127:music_player/games/Zelda.txt
+F:69a1458f0cc0c7352df8a5718cf5469f:174:music_player/games/Zelda64.txt
+F:4a179905475c961dc975ce9d6b23cc30:127:music_player/media/ Buffy The Vampire Slayer.txt
+F:23cb34e414169b0ba6fca04abaf20fde:92:music_player/media/ Coca Cola (Coke) Advert - Always The Real Thing.txt
+F:c726e6e234c435a13b016b9bfa7fa9a0:183:music_player/media/ Coca Cola (Coke) Advert - Life Tastes Good.txt
+F:be0e4fbfc5d03c8b655fda461f6c51b9:222:music_player/media/ Dexters Laboratory.txt
+F:253afff46fbdb9fcfea99a7796647981:184:music_player/media/ Flintstones.txt
+F:46db006dea56f4e658b1c93c877ee8a8:214:music_player/media/ Futurama 2.txt
+F:fb5eac2de51562c51e7c8f5e86f05746:126:music_player/media/ Ghostbusters 2.txt
+F:5653fa59c441b7cdf08e0351e171f575:131:music_player/media/ Gilligan's Island.txt
+F:f5f8a19cdc65e842069e764ea8529c16:218:music_player/media/ Jeopardy.txt
+F:c6ebebff0f6b85116f303e5c4f208589:44:music_player/media/ Jetsons.txt
+F:1a43de53ff54b46c6a84ef4c35fa422f:395:music_player/media/ Johny Bravo.txt
+F:b9f3c8c17d87c1462af97c8df86d5d62:150:music_player/media/ Jurassic Park.txt
+F:b96f63b37a9557ab106b44e110f5fa4b:170:music_player/media/ King Of The Hill.txt
+F:66d9267f9bc8c7f25ef696a4c54bb8ec:195:music_player/media/ Law And Order.txt
+F:eefe8872324151edc12a15290e0d8e91:396:music_player/media/ Mortal Kombat.txt
+F:a372bd2c91dfdf943ff5bd133822c800:106:music_player/media/ Pink Panther.txt
+F:3912dd00eaacbe40e95fae2509cd8e1b:190:music_player/media/ Pipo De Clown.txt
+F:85bea4ca4a67f095299d151544744e64:154:music_player/media/ Pokemon.txt
+F:eb5a77a9f460c7adf6d9df0ca2c414ec:204:music_player/media/ Powerpuff Girls - End Theme 2.txt
+F:308209a50bed12615b81948e2268fcc2:153:music_player/media/ Powerpuff Girls.txt
+F:2c2197b95a2dbee758ab264727c9b905:139:music_player/media/ Scooby Doo.txt
+F:868524832128c322a125514394c70f7f:91:music_player/media/ Seinfeld.txt
+F:f9da7c84e243c9d55280fa7a68a5cf77:111:music_player/media/ Sex And The City.txt
+F:50bd0f066eec088bd027ee3efff43a77:190:music_player/media/ Smurfs.txt
+F:430c2d4a0441cd4acf315dfa3b4dd76a:156:music_player/media/ Spiderman 1.txt
+F:61986f2a0be4813705dde8662ff2ee1c:236:music_player/media/ Spiderman 2.txt
+F:3639b641d22ea3b8914b991179fa9796:235:music_player/media/ Star Wars.txt
+F:99a43014aba7f8bb4ec25047e87e81f0:107:music_player/media/ Teletubbies.txt
+F:9c5c2a81c5f0ece60155028ec82b5e1c:194:music_player/media/ The Good, The Bad, And The Ugly.txt
+F:212fc33b88e793e31f68c328c340940d:176:music_player/media/ The Sopranos.txt
+F:d559a0a5775f6c4bf9b10c0ad8d3d3ee:156:music_player/media/ X Files 2.txt
+F:d8125adf7fb22303840244942eecde7b:126:music_player/media/Chobits - Let Me Be With You.txt
+F:b052bbd794318350d7cca5d851336949:291:music_player/media/Coca Cola - Chihuahua.txt
+F:92da1271d4b7704ffc4f4dbc419b1f30:65:music_player/media/Coca Cola - Theme.txt
+F:2254df1f2a53b10d9d6bec5eea348dea:148:music_player/media/Coca Cola - Unknown.txt
+F:b052bbd794318350d7cca5d851336949:291:music_player/media/Coca Cola Commercial - Chihuahua.txt
+F:63fc2a303302cdf39d315fe4ca5d78f7:68:music_player/media/Coco Cola - Theme.txt
+F:58d3c48270741bee1748544a791deaf9:103:music_player/media/Doraemon.txt
+F:999b25a43f483d461e9183e67079232f:164:music_player/media/Invader ZIM - Theme Song.txt
+F:6b88c66e9681461b02e366622aec17c3:133:music_player/media/Japan   Doraemon - Doraemon.txt
+F:5ded1d5f5ddb973b25eba6903921adb2:110:music_player/media/Japan - Doraemon.txt
+F:6d7493583a886c3254690761610b4d1c:253:music_player/media/Kill Bill - Theme.txt
+F:f941c95014c689482b40860028d73f2b:178:music_player/media/Kill Bill.txt
+F:511e15c52b99518e2ed00fb35b4e1292:269:music_player/media/Pacman - Theme.txt
+F:5192e01c925d79ff4217ae89e9ccd23f:99:music_player/media/Pingu.txt
+F:aede0380600b4624b66b007f95a7303d:152:music_player/media/Ren'n Stimpy - Unknown.txt
+F:c83a93e918a0fd384aaf123233d76f0a:265:music_player/media/Shrek 2 - Accidentally In Love (Counting Crows).txt
+F:da778a451ba794d2312d8d2b421a8ffc:152:music_player/media/Shrek.txt
+F:e914ddff92721fcf154829b0b18503a5:161:music_player/media/Spongebob & Plankton - Theme.txt
+F:9381517e917c40adc46381291df199af:241:music_player/media/Spongebob Squarepants - Theme.txt
+F:8f500e9d9d2c93b6e8f6f0e07f0d8563:208:music_player/media/Spongebob Squarepants.txt
+F:b76a28e2d41a2696a552911b209e9c4e:260:music_player/media/The Matrix - Theme.txt
+F:3bda32913010cee3e1f5baabf26f7d16:361:music_player/media/The Simpsons Theme - The Simpsons.txt
+F:15e12a4652acf73642087e077bc146d5:380:music_player/media/Winx Club - Theme.txt
+F:eda3c787ad195205fae299c75b1f4503:192:music_player/media/X - Men Cartoon Theme.txt
+F:d282a71a15ced37f739a39bf7b491d02:182:music_player/songs/Abba - Dancing Queen.txt
+F:fe2042ca68f4a5e306c7b47f8d58fa92:201:music_player/songs/Abba - Mamma Mia.txt
+F:9095d7ccd0788ccad679839024031d70:156:music_player/songs/Abba - Money.txt
+F:cea713cda390da4c7e392ae50cb9a99d:154:music_player/songs/Abba - Voulez Vous.txt
+F:d11f8899ca00a399d5ed33c836ffbc2c:212:music_player/songs/Abba - Waterloo.txt
+F:a7f60fb57d60a058275b2f2b3cbda32a:203:music_player/songs/Avalanches - Frontier Psychiatrist.txt
+F:be0772cfbf884ce29dc04fd15d2b0bd6:157:music_player/songs/B 52s - Rock Lobster.txt
+F:ba3a33253c55eb859ea6e248e261dad7:107:music_player/songs/Backstreet Boys - Backstreet's Back.txt
+F:3a6c9a046fb3674445850ae57952b897:82:music_player/songs/Backstreet Boys - Everybody.txt
+F:af096e85ac77c7e49297108acd7193cc:473:music_player/songs/Benny Bennassi - Satisfaction.txt
+F:aa5800d88d56cba49ac937c8e93b833e:275:music_player/songs/Black Street - No Diggity.txt
+F:1d6abc2fdeceb420a1e7aa956e180420:248:music_player/songs/Blackstreet Feat. Dr. Dre - No Diggity.txt
+F:8138226e6cfc0d4710fcbdc8085ea62f:176:music_player/songs/Blue Oyster Cult - Dont Fear The Reaper.txt
+F:eda12bb81168846cd4f40eef45ced937:170:music_player/songs/Bootylicious (remix) - Destiny's Child.txt
+F:cb7ba65bb42ce039c2a9c5800e247ee5:130:music_player/songs/Cake - Going The Distance.txt
+F:5230925c0cbd3149122b774b0e51dd18:125:music_player/songs/Cake - Never There.txt
+F:6cffa7cd73f6da168fc08fccd3981516:107:music_player/songs/Cake - Short Skirt Long Jacket.txt
+F:e1a4fdee7696dd7562df25b0327474b8:372:music_player/songs/Crazy Frog - Axel F.txt
+F:98f8e751313861387454ce72c7ce3259:334:music_player/songs/Crazy Frog - Jingle Bells.txt
+F:c59ffc8ba39fee2ed4509e26ddfcf575:209:music_player/songs/D12 - My Band.txt
+F:ec5e686bc938d5571052fba5b44de10d:229:music_player/songs/David Bowie - Major Tom.txt
+F:74da67375460789855c342038b8c93bc:132:music_player/songs/David Bowie - Starman.txt
+F:fcc6ca4e889c460995a827216a095a22:103:music_player/songs/David Bowie - The Man Who Sold The World.txt
+F:428ddbea78b82deebc8b9dd07b4b42c7:197:music_player/songs/Eiffel 65 - Blue Da-Ba-Dee.txt
+F:5026ad4454e7ea71a833e115614c3285:185:music_player/songs/Eiffel 65 - Blue(Dabadee).txt
+F:5448ec9a2c15fa290d0e2960b0e84f1d:195:music_player/songs/Gorillaz - 19-2000 3.txt
+F:c816893d53148e91298c75daf45da2be:243:music_player/songs/Gorillaz - 2000.txt
+F:527d3c7e79b9f4431e9dfe9a896e2832:131:music_player/songs/Gorillaz - Clint Eastwood 2.txt
+F:e5822552fcfd9bc1e1e6cb33145006b7:221:music_player/songs/Gorillaz - Dirty Harry.txt
+F:2ab1f8bbc85fbee95caa557f431b40e1:159:music_player/songs/Jamiroquai - Space Cowboy.txt
+F:7bafcc5c58ab8a952627935480bdaa78:143:music_player/songs/Men At Work - Land Down Under (Alt).txt
+F:896244994d17f48ead8e6ea138b8b33a:239:music_player/songs/Men At Work - Land Down Under.txt
+F:4d823a9943251adbe1a36fe559df2caa:129:music_player/songs/Missy Elliott - Get Ur Freak On.txt
+F:8008a649cff10ac5349eb6bf6d94ec9d:252:music_player/songs/Missy Elliott - Get Your Freak On.txt
+F:5e96679cf09963762aa6a661bc697c37:162:music_player/songs/Missy Elliott - Work It.txt
+F:7e31d087fdda4c7d27f09ab3392e6abb:131:music_player/songs/Mortal Kombat Intro - Theme.txt
+F:5f3d8c8a47972a7368a51f789f0df5f0:222:music_player/songs/N'Sync - It's Gonna Be Me.txt
+F:b1b4d874b8236db267fad0e30aa9b5a1:249:music_player/songs/Nelly - Hot In Here.txt
+F:82017325def76a9f29837619f9919bb4:194:music_player/songs/News At 10.txt
+F:c66be6fbcf0d3ea4fb5c6e88e052a0a2:162:music_player/songs/Nickelback - Photograph.txt
+F:d8d6320f77b8bb8223fa8cb45f222da4:170:music_player/songs/Nirvana - Come As You Are V2.0.txt
+F:7f803230bfcb7988e06cb0c0433b6521:98:music_player/songs/Nirvana - Lithium.txt
+F:a0073748dc2ee078e6cc51100331a15d:213:music_player/songs/Nirvana - Man Who Sold The World.txt
+F:09e2f67dadb749f7a0b7fb49c14efd4d:267:music_player/songs/Nirvana - Polly.txt
+F:620cddf3a389375f1bf8ddaf24571fc3:118:music_player/songs/Nirvana - Rape Me.txt
+F:27efcf0d81ecb6c474604ad23f8a1beb:147:music_player/songs/Nirvana - Smells Like Teen Spirit.txt
+F:077164d042faa2d53628e53dcebfcc91:87:music_player/songs/Nirvana - Something In The Way.txt
+F:5bb470a9c2f8e5d09b648ed786619fc7:141:music_player/songs/Oasis - Wonderwall.txt
+F:99072f94819c0f325fbbb05ce497b822:189:music_player/songs/Outkast - Hey Ya (Excellent).txt
+F:84156d7344a96446b6969ff2c86e55cb:113:music_player/songs/Outkast - Ms Jackson.txt
+F:deab23e6734f4cc14bda1133804e4de4:308:music_player/songs/R. Kelly - Ignition.txt
+F:f817549ecf53fa9045e194fac94482e6:181:music_player/songs/Shaggy - Wasnt Me 2.txt
+F:c6c9a2bba48727e833798564ebc20599:203:music_player/songs/Shake That Ass.txt
+F:e1ff54fed86bb15ad49ff136ac4eeb81:195:music_player/songs/Sublime - Santeria.txt
+F:b85f7f9a8cd1deea41092e30ae0e8f3b:174:music_player/songs/System Of A Down - Chop Suey 2.txt
+F:3ab5230d4ee1da25410903a4ae9adbd5:181:music_player/songs/System Of A Down - Prison Song.txt
+F:81c7b9acee7f75d3378f22d44be5a20b:242:music_player/songs/System Of A Down - Toxicity.txt
+F:3b2a4d27eca42bb7a755ebc149a91335:34:music_player/songs/T Mobile - Tmobile Theme.txt
+F:94e35b8486b019d2cee245dd4f8c7e59:117:music_player/songs/The Offspring - Pretty Fly V2.0.txt
+F:776710956f606288ce7a1231347bcd8f:233:music_player/songs/Tupac Shakor - Hit 'em Up.txt
+F:c0b6e371a0a991f507f256e92efd68c8:156:music_player/songs/Unknown - Happy Birthday.txt
+F:c94053c7272b2430e167dfa2328633cc:215:music_player/songs/Unknown - Kalinka V2.0.txt
+F:f9f17e9b138ccdc374cdc72bbad43d4b:93:music_player/songs/Unknown - La Cucaracha V2.0.txt
+F:a4f072fe3731f211e396ced541f36818:107:music_player/songs/Unknown - Lambada.txt
+F:181c6356290c000acc8966a7b43f6613:96:music_player/songs/Weezer - Buddy Holly.txt
+F:d6e0ccaf889eedd2204b87332ca461e7:138:music_player/songs/Weezer - Island In The Sun (Bass).txt
+F:3b446cba39195b6c4f0d9180d9b5b7ec:87:music_player/songs/Weezer - Undone (The Sweater Song).txt
+F:654f098844088db4815410805ed64493:112:music_player/songs/Yes - Owner Of A Lonely Heart.txt
 D:nfc/assets
-F:c6826a621d081d68309e4be424d3d974:4715:nfc/assets/aid.nfc
+F:81dc04c7b181f94b644079a71476dff4:4742:nfc/assets/aid.nfc
 F:86efbebdf41bb6bf15cc51ef88f069d5:2565:nfc/assets/country_code.nfc
 F:41b4f08774249014cb8d3dffa5f5c07d:1757:nfc/assets/currency_code.nfc
 F:18d6ceceaa8d86931a631103152f121d:50397:nfc/assets/mf_classic_dict.nfc
@@ -6290,7 +6525,7 @@ F:653bd8d349055a41e1152e557d4a52d3:202:subghz/assets/nice_flor_s
 F:35851dab442aa3e18722fcaaf2ce070e:666:subghz/assets/setting_frequency_analyzer_user
 F:2b9d171f9bbaa09f609eeba909a40b6a:861:subghz/assets/setting_user
 F:e7199dcdbc7910508b1ef3fddf3fe219:255:subghz/assets/touchtunes_map
-F:9068fe1b3a1fe2fada47f72f586f89d7:221:subghz/assets/universal_rf_map
+F:7e6dab51ba633e8c3f1fa90124ed1b6c:215:subghz/assets/universal_rf_map
 D:u2f/assets
 F:7e11e688e39034bbb9d88410044795e1:365:u2f/assets/cert.der
 F:f60b88c20ed479ed9684e249f7134618:264:u2f/assets/cert_key.u2f

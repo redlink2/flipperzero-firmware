@@ -79,7 +79,7 @@ const FrameBubble L1_Tv_128x47_bubble_0_0 = {
     .bubble = {
         .x = 1,
         .y = 23,
-        .text = "Take the red pill",
+        .text = "Another hollywood hacker",
         .align_h = AlignRight,
         .align_v = AlignBottom,
     },
@@ -93,7 +93,7 @@ const FrameBubble L1_Tv_128x47_bubble_1_0 = {
     .bubble = {
         .x = 1,
         .y = 23,
-        .text = "I can joke better",
+        .text = "I've made better content than this",
         .align_h = AlignRight,
         .align_v = AlignBottom,
     },
