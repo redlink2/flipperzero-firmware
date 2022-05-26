@@ -81,7 +81,7 @@ sudo docker-compose exec dev make
 
 ### The compiled firmware can be found in the `/dist/f7/` directory.
 
-#### Be sure to flash stock firmware to the Flipper before flashing the redlinked firmware for the first time.
+#### Be sure to flash stock firmware to the Flipper before flashing the redlinked firmware.
 
 </details>
 
