@@ -16,7 +16,6 @@
 #define TAG "FuriHalSubGhz"
 
 static volatile SubGhzState furi_hal_subghz_state = SubGhzStateInit;
-static volatile SubGhzRegulation furi_hal_subghz_regulation = SubGhzRegulationTxRx;
 static volatile FuriHalSubGhzPreset furi_hal_subghz_preset = FuriHalSubGhzPresetIDLE;
 
 static const uint8_t furi_hal_subghz_preset_ook_270khz_async_regs[][2] = {
@@ -853,7 +852,6 @@ bool furi_hal_subghz_start_async_tx(FuriHalSubGhzAsyncTxCallback callback, void*
     furi_assert(callback);
 
     //If transmission is prohibited by regional settings
-    if(furi_hal_subghz_regulation != SubGhzRegulationTxRx) return false;
 
     furi_hal_subghz_async_tx.callback = callback;
     furi_hal_subghz_async_tx.callback_context = context;
