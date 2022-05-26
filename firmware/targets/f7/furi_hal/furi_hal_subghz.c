@@ -16,7 +16,6 @@
 #define TAG "FuriHalSubGhz"
 
 static volatile SubGhzState furi_hal_subghz_state = SubGhzStateInit;
-static volatile SubGhzRegulation furi_hal_subghz_regulation = SubGhzRegulationTxRx;
 static volatile FuriHalSubGhzPreset furi_hal_subghz_preset = FuriHalSubGhzPresetIDLE;
 
 static const uint8_t furi_hal_subghz_preset_ook_270khz_async_regs[][2] = {
@@ -285,15 +284,6 @@ static const uint8_t furi_hal_subghz_preset_ook_async_patable[8] = {
     0x00,
     0x00,
     0x00};
-static const uint8_t furi_hal_subghz_preset_ook_async_patable_au[8] = {
-    0x00,
-    0x37, // 12dBm 0xC0, 10dBm 0xC5, 7dBm 0xCD, 5dBm 0x86, 0dBm 0x50, -6dBm 0x37, -10dBm 0x26, -15dBm 0x1D, -20dBm 0x17, -30dBm 0x03
-    0x00,
-    0x00,
-    0x00,
-    0x00,
-    0x00,
-    0x00};
 static const uint8_t furi_hal_subghz_preset_2fsk_async_patable[8] = {
     0xC0, // 10dBm 0xC0, 7dBm 0xC8, 5dBm 0x84, 0dBm 0x60, -10dBm 0x34, -15dBm 0x1D, -20dBm 0x0E, -30dBm 0x12
     0x00,
@@ -515,7 +505,6 @@ void furi_hal_subghz_rx() {
 }
 
 bool furi_hal_subghz_tx() {
-    if(furi_hal_subghz_regulation != SubGhzRegulationTxRx) return false;
     furi_hal_spi_acquire(&furi_hal_spi_bus_handle_subghz);
     cc1101_switch_to_tx(&furi_hal_spi_bus_handle_subghz);
     furi_hal_spi_release(&furi_hal_spi_bus_handle_subghz);
@@ -569,56 +558,7 @@ uint32_t furi_hal_subghz_set_frequency_and_path(uint32_t value) {
     return value;
 }
 
-bool furi_hal_subghz_is_tx_allowed(uint32_t value) {
-    //checking regional settings
-    bool is_allowed = false;
-    switch(furi_hal_version_get_hw_region()) {
-    case FuriHalVersionRegionEuRu:
-        //433,05..434,79; 868,15..868,55
-        if(!(value >= 433050000 && value <= 434790000) &&
-           !(value >= 868150000 && value <= 868550000)) {
-        } else {
-            is_allowed = true;
-        }
-        break;
-    case FuriHalVersionRegionUsCaAu:
-        //304,10..321,95; 433,05..434,79; 915,00..928,00
-        if(!(value >= 304100000 && value <= 321950000) &&
-           !(value >= 433050000 && value <= 434790000) &&
-           !(value >= 915000000 && value <= 928000000)) {
-        } else {
-            if(furi_hal_rtc_is_flag_set(FuriHalRtcFlagDebug)) {
-                if((value >= 304100000 && value <= 321950000) &&
-                   ((furi_hal_subghz_preset == FuriHalSubGhzPresetOok270Async) ||
-                    (furi_hal_subghz_preset == FuriHalSubGhzPresetOok650Async))) {
-                    furi_hal_subghz_load_patable(furi_hal_subghz_preset_ook_async_patable_au);
-                }
-            }
-            is_allowed = true;
-        }
-        break;
-    case FuriHalVersionRegionJp:
-        //312,00..315,25; 920,50..923,50
-        if(!(value >= 312000000 && value <= 315250000) &&
-           !(value >= 920500000 && value <= 923500000)) {
-        } else {
-            is_allowed = true;
-        }
-        break;
-
-    default:
-        is_allowed = true;
-        break;
-    }
-    return is_allowed;
-}
-
 uint32_t furi_hal_subghz_set_frequency(uint32_t value) {
-    if(furi_hal_subghz_is_tx_allowed(value)) {
-        furi_hal_subghz_regulation = SubGhzRegulationTxRx;
-    } else {
-        furi_hal_subghz_regulation = SubGhzRegulationOnlyRx;
-    }
 
     furi_hal_spi_acquire(&furi_hal_spi_bus_handle_subghz);
     uint32_t real_frequency = cc1101_set_frequency(&furi_hal_spi_bus_handle_subghz, value);
@@ -857,7 +797,6 @@ bool furi_hal_subghz_start_async_tx(FuriHalSubGhzAsyncTxCallback callback, void*
     furi_assert(callback);
 
     //If transmission is prohibited by regional settings
-    if(furi_hal_subghz_regulation != SubGhzRegulationTxRx) return false;
 
     furi_hal_subghz_async_tx.callback = callback;
     furi_hal_subghz_async_tx.callback_context = context;
