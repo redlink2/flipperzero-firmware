@@ -2,6 +2,7 @@
 #include <lib/subghz/protocols/keeloq.h>
 #include <lib/subghz/protocols/faac_slh.h>
 #include <lib/subghz/protocols/secplus_v1.h>
+#include <lib/subghz/protocols/secplus_v2.h>
 #include <lib/subghz/blocks/math.h>
 #include <dolphin/dolphin.h>
 #include <flipper_format/flipper_format_i.h>
@@ -12,6 +13,7 @@
 
 enum SubmenuIndex {
     SubmenuIndexFaacSLH,
+    SubmenuIndexBFT,
     SubmenuIndexPricenton,
     SubmenuIndexNiceFlo12bit,
     SubmenuIndexNiceFlo24bit,
@@ -26,6 +28,9 @@ enum SubmenuIndex {
     SubmenuIndexFirefly_300_00,
     SubmenuIndexLiftMaster_315_00,
     SubmenuIndexLiftMaster_390_00,
+    SubmenuIndexSecPlus_v2_310_00,
+    SubmenuIndexSecPlus_v2_315_00,
+    SubmenuIndexSecPlus_v2_390_00,
 };
 
 bool subghz_scene_set_type_submenu_gen_data_protocol(
@@ -87,6 +92,12 @@ void subghz_scene_set_type_on_enter(void* context) {
         subghz->submenu,
         "Faac SLH_868",
         SubmenuIndexFaacSLH,
+        subghz_scene_set_type_submenu_callback,
+        subghz);
+    submenu_add_item(
+        subghz->submenu,
+        "BFT Mitto",
+        SubmenuIndexBFT,
         subghz_scene_set_type_submenu_callback,
         subghz);
     submenu_add_item(
@@ -165,6 +176,24 @@ void subghz_scene_set_type_on_enter(void* context) {
         SubmenuIndexLiftMaster_390_00,
         subghz_scene_set_type_submenu_callback,
         subghz);
+    submenu_add_item(
+        subghz->submenu,
+        "Security+2.0_310",
+        SubmenuIndexSecPlus_v2_310_00,
+        subghz_scene_set_type_submenu_callback,
+        subghz);
+    submenu_add_item(
+        subghz->submenu,
+        "Security+2.0_315",
+        SubmenuIndexSecPlus_v2_315_00,
+        subghz_scene_set_type_submenu_callback,
+        subghz);
+    submenu_add_item(
+        subghz->submenu,
+        "Security+2.0_390",
+        SubmenuIndexSecPlus_v2_390_00,
+        subghz_scene_set_type_submenu_callback,
+        subghz);
 
     submenu_set_selected_item(
         subghz->submenu, scene_manager_get_scene_state(subghz->scene_manager, SubGhzSceneSetType));
@@ -182,6 +211,9 @@ bool subghz_scene_set_type_on_event(void* context, SceneManagerEvent event) {
         switch(event.event) {
         case SubmenuIndexFaacSLH:
             scene_manager_next_scene(subghz->scene_manager, SubGhzSceneSetFix);
+            break;
+        case SubmenuIndexBFT:
+            scene_manager_next_scene(subghz->scene_manager, SubGhzSceneSetFixBft);
             break;
         case SubmenuIndexPricenton:
             key = (key & 0x00FFFFF0) | 0x4; //btn 0x1, 0x2, 0x4, 0x8
@@ -345,7 +377,7 @@ bool subghz_scene_set_type_on_event(void* context, SceneManagerEvent event) {
             if(subghz_scene_set_type_submenu_gen_data_protocol(
                    subghz,
                    SUBGHZ_PROTOCOL_SECPLUS_V1_NAME,
-                   (uint64_t)key << 32 | 32,
+                   (uint64_t)key << 32 | 0xE6000000,
                    42,
                    315000000,
                    FuriHalSubGhzPresetOok650Async)) {
@@ -360,12 +392,66 @@ bool subghz_scene_set_type_on_event(void* context, SceneManagerEvent event) {
             if(subghz_scene_set_type_submenu_gen_data_protocol(
                    subghz,
                    SUBGHZ_PROTOCOL_SECPLUS_V1_NAME,
-                   (uint64_t)key << 32 | 32,
+                   (uint64_t)key << 32 | 0xE6000000,
                    42,
                    390000000,
                    FuriHalSubGhzPresetOok650Async)) {
                 generated_protocol = true;
             }
+            break;
+        case SubmenuIndexSecPlus_v2_310_00:
+            subghz->txrx->transmitter = subghz_transmitter_alloc_init(
+                subghz->txrx->environment, SUBGHZ_PROTOCOL_SECPLUS_V2_NAME);
+            if(subghz->txrx->transmitter) {
+                subghz_protocol_secplus_v2_create_data(
+                    subghz_transmitter_get_protocol_instance(subghz->txrx->transmitter),
+                    subghz->txrx->fff_data,
+                    key,
+                    0x68,
+                    0xE500000,
+                    310000000,
+                    FuriHalSubGhzPresetOok650Async);
+                generated_protocol = true;
+            } else {
+                generated_protocol = false;
+            }
+            subghz_transmitter_free(subghz->txrx->transmitter);
+            break;
+        case SubmenuIndexSecPlus_v2_315_00:
+            subghz->txrx->transmitter = subghz_transmitter_alloc_init(
+                subghz->txrx->environment, SUBGHZ_PROTOCOL_SECPLUS_V2_NAME);
+            if(subghz->txrx->transmitter) {
+                subghz_protocol_secplus_v2_create_data(
+                    subghz_transmitter_get_protocol_instance(subghz->txrx->transmitter),
+                    subghz->txrx->fff_data,
+                    key,
+                    0x68,
+                    0xE500000,
+                    315000000,
+                    FuriHalSubGhzPresetOok650Async);
+                generated_protocol = true;
+            } else {
+                generated_protocol = false;
+            }
+            subghz_transmitter_free(subghz->txrx->transmitter);
+            break;
+        case SubmenuIndexSecPlus_v2_390_00:
+            subghz->txrx->transmitter = subghz_transmitter_alloc_init(
+                subghz->txrx->environment, SUBGHZ_PROTOCOL_SECPLUS_V2_NAME);
+            if(subghz->txrx->transmitter) {
+                subghz_protocol_secplus_v2_create_data(
+                    subghz_transmitter_get_protocol_instance(subghz->txrx->transmitter),
+                    subghz->txrx->fff_data,
+                    key,
+                    0x68,
+                    0xE500000,
+                    390000000,
+                    FuriHalSubGhzPresetOok650Async);
+                generated_protocol = true;
+            } else {
+                generated_protocol = false;
+            }
+            subghz_transmitter_free(subghz->txrx->transmitter);
             break;
 
         default:
