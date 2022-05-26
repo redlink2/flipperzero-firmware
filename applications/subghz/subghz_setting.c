@@ -52,6 +52,7 @@ static const uint32_t subghz_frequencies[] = {
     0,
 };
 static const uint32_t subghz_hopper_frequencies[] = {
+    310000000,
     315000000,
     318000000,
     390000000,
@@ -59,7 +60,7 @@ static const uint32_t subghz_hopper_frequencies[] = {
     868350000,
     0,
 };
-static const uint32_t subghz_frequency_default_index = 9;
+static const uint32_t subghz_frequency_default_index = 16;
 
 static const uint32_t subghz_frequencies_region_eu_ru[] = {
     /* 300 - 348 */
