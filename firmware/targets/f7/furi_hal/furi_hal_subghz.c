@@ -16,6 +16,7 @@
 #define TAG "FuriHalSubGhz"
 
 static volatile SubGhzState furi_hal_subghz_state = SubGhzStateInit;
+static volatile SubGhzRegulation furi_hal_subghz_regulation = SubGhzRegulationTxRx;
 static volatile FuriHalSubGhzPreset furi_hal_subghz_preset = FuriHalSubGhzPresetIDLE;
 
 static const uint8_t furi_hal_subghz_preset_ook_270khz_async_regs[][2] = {
