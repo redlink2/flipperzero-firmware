@@ -1,5 +1,5 @@
 V:0
-T:1653556178
+T:1653556680
 D:badusb
 D:dolphin
 D:infrared
@@ -111,7 +111,7 @@ F:494f27958f4cea9b94d09cf27725c5cd:652:dolphin/L1_Read_books_128x64/frame_5.bm
 F:a6a7491fe80255e1745c9f293da52805:646:dolphin/L1_Read_books_128x64/frame_6.bm
 F:238497e6643fd491cd6002e98c615c05:647:dolphin/L1_Read_books_128x64/frame_7.bm
 F:300651e8f53d9a29ae38d4b9292c73cf:643:dolphin/L1_Read_books_128x64/frame_8.bm
-F:f6b849ac44f46f107b7b59d303f1b42b:524:dolphin/L1_Read_books_128x64/meta.txt
+F:94a43ae914d5f941e11b19bef77ddea0:525:dolphin/L1_Read_books_128x64/meta.txt
 F:2aba555567ab70cff003ded4138c6721:663:dolphin/L1_Recording_128x51/frame_0.bm
 F:8456c6e86825957e5662e2f08eb6c116:657:dolphin/L1_Recording_128x51/frame_1.bm
 F:2e4a1aca5afa5a6ab254884210875eb4:629:dolphin/L1_Recording_128x51/frame_10.bm
@@ -129,12 +129,12 @@ F:9858fd34b55cebcb9be50c5710212a13:580:dolphin/L1_Sleep_128x64/frame_0.bm
 F:e47ef8c846083b8fde028b1724861444:589:dolphin/L1_Sleep_128x64/frame_1.bm
 F:9749bd05b47fd07cc3a41ab201f86bf4:582:dolphin/L1_Sleep_128x64/frame_2.bm
 F:edf11266b20b846ace622e41cd36906b:597:dolphin/L1_Sleep_128x64/frame_3.bm
-F:a2d9cdf33b2fa62d2e8481dffab565c8:720:dolphin/L1_Sleep_128x64/meta.txt
+F:dc23629c2a57da383dab66af0f96b9aa:721:dolphin/L1_Sleep_128x64/meta.txt
 F:283b41f1b2c581c510ff176293b7288a:443:dolphin/L1_Waves_128x50/frame_0.bm
 F:c9fc5127e1d8a4217b6b177716725ba0:448:dolphin/L1_Waves_128x50/frame_1.bm
 F:8e0797bf26d5d8d3cbeb99798c222b80:463:dolphin/L1_Waves_128x50/frame_2.bm
 F:da02b1deb3119b31f2b8f182d5bf3242:472:dolphin/L1_Waves_128x50/frame_3.bm
-F:5097425b69d80d88b2b32f2e03c6bb2c:729:dolphin/L1_Waves_128x50/meta.txt
+F:065d5c89928ec9add723d97e2594ab05:730:dolphin/L1_Waves_128x50/meta.txt
 F:be80d2fa903e3250b69c063a1eef0621:350:dolphin/L2_Furippa2_128x64/frame_0.bm
 F:9e628f5e154f12d6c57b13befed1f5f6:385:dolphin/L2_Furippa2_128x64/frame_1.bm
 F:80b48a77682b853e6236cd1c89083e6f:465:dolphin/L2_Furippa2_128x64/frame_10.bm

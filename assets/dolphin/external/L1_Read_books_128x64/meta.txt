@@ -39,21 +39,3 @@ AlignH: Right
 AlignV: Bottom
 StartFrame: 14
 EndFrame: 16
-
-Slot: 1
-X: 5
-Y: 28
-Text: Can't wait for V1
-AlignH: Right
-AlignV: Bottom
-StartFrame: 14
-EndFrame: 16
-
-Slot: 2
-X: 5
-Y: 28
-Text: Don't be suspicious
-AlignH: Right
-AlignV: Bottom
-StartFrame: 14
-EndFrame: 16
