@@ -9,7 +9,7 @@ Our goal is to make any features possible in this device without any stupid limi
 
 # Clone the Repository
 
-You should clone with 
+You should clone with
 ```shell
 $ git clone --recursive https://github.com/Eng1n33r/flipperzero-firmware.git
 ```
@@ -53,7 +53,7 @@ One liner: `make flash_radio`
 1. Download latest [Firmware](https://github.com/Eng1n33r/flipperzero-firmware/releases)
 
 2. Reboot Flipper to Bootloader
- - Press and hold `← Left` + `↩ Back` for reset 
+ - Press and hold `← Left` + `↩ Back` for reset
  - Release `↩ Back` and keep holding `← Left` until blue LED lights up
  - Release `← Left`
 <!-- ![Switch to DFU sequence](https://habrastorage.org/webt/uu/c3/g2/uuc3g2n36f2sju19rskcvjzjf6w.png) -->
