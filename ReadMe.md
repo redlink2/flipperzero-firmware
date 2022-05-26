@@ -1,5 +1,4 @@
 # Flipper Zero Redlinked Firmware
----
 ### Quick Start:
 
 ```bash
@@ -7,7 +6,6 @@ git clone --recursive https://github.com/redlink2/flipperzero-redlinked.git
 ```
 
 ## Differences from the original firmware
----
 
 <details>
 <summary>Show Changes Made From Orginal Firmware</summary>
@@ -45,7 +43,6 @@ git clone --recursive https://github.com/redlink2/flipperzero-redlinked.git
 </details>
 
 ## Build Instructions
----
 
 <details>
 <summary>Show Build Instructions</summary>
@@ -89,7 +86,6 @@ sudo docker-compose exec dev make
 </details>
 
 ## Credits
----
 
 ### Firmware:
 - [FlipperDevices](https://github.com/flipperdevices/flipperzero-firmware)
