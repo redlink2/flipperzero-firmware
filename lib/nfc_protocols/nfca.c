@@ -10,7 +10,7 @@
 #define NFCA_F_SIG (13560000.0)
 #define NFCA_T_SIG (1.0 / NFCA_F_SIG)
 
-#define NFCA_SIGNAL_MAX_EDGES (1500)
+#define NFCA_SIGNAL_MAX_EDGES (1350)
 
 typedef struct {
     uint8_t cmd;
@@ -109,19 +109,31 @@ void nfca_signal_free(NfcaSignal* nfca_signal) {
 
     digital_signal_free(nfca_signal->one);
     digital_signal_free(nfca_signal->zero);
+    digital_signal_free(nfca_signal->tx_signal);
     free(nfca_signal);
 }
 
-void nfca_signal_encode(NfcaSignal* nfca_signal, uint8_t* data, uint16_t len, uint8_t* parity) {
+void nfca_signal_encode(NfcaSignal* nfca_signal, uint8_t* data, uint16_t bits, uint8_t* parity) {
     furi_assert(nfca_signal);
     furi_assert(data);
     furi_assert(parity);
 
     nfca_signal->tx_signal->edge_cnt = 0;
-    nfca_signal->tx_signal->start_level = false;
+    nfca_signal->tx_signal->start_level = true;
     // Start of frame
     digital_signal_append(nfca_signal->tx_signal, nfca_signal->one);
-    for(size_t i = 0; i < len; i++) {
-        nfca_add_byte(nfca_signal, data[i], parity[i / 8] & (1 << (7 - (i & 0x07))));
+
+    if(bits < 8) {
+        for(size_t i = 0; i < bits; i++) {
+            if(FURI_BIT(data[0], i)) {
+                digital_signal_append(nfca_signal->tx_signal, nfca_signal->one);
+            } else {
+                digital_signal_append(nfca_signal->tx_signal, nfca_signal->zero);
+            }
+        }
+    } else {
+        for(size_t i = 0; i < bits / 8; i++) {
+            nfca_add_byte(nfca_signal, data[i], parity[i / 8] & (1 << (7 - (i & 0x07))));
+        }
     }
 }

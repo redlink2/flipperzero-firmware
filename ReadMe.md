@@ -7,6 +7,13 @@
 Welcome to [Flipper Zero](https://flipperzero.one/)'s Custom Firmware repo!
 Our goal is to make any features possible in this device without any stupid limitations! Please help us realize emulation for all dynamic (rolling codes) protocols and brute-force app!
 
+# Clone the Repository
+
+You should clone with
+```shell
+$ git clone --recursive https://github.com/Eng1n33r/flipperzero-firmware.git
+```
+
 # Update firmware
 
 [Get Latest Firmware from Update Server](https://github.com/Eng1n33r/flipperzero-firmware)
@@ -43,10 +50,10 @@ One liner: `make flash_radio`
 
 ## With USB DFU 
 
-1. Download latest [Firmware](https://update.flipperzero.one)
+1. Download latest [Firmware](https://github.com/Eng1n33r/flipperzero-firmware/releases)
 
 2. Reboot Flipper to Bootloader
- - Press and hold `← Left` + `↩ Back` for reset 
+ - Press and hold `← Left` + `↩ Back` for reset
  - Release `↩ Back` and keep holding `← Left` until blue LED lights up
  - Release `← Left`
 <!-- ![Switch to DFU sequence](https://habrastorage.org/webt/uu/c3/g2/uuc3g2n36f2sju19rskcvjzjf6w.png) -->
@@ -73,6 +80,8 @@ docker-compose exec dev make
 Check `dist/` for build outputs.
 
 Use **`flipper-z-{target}-full-{suffix}.dfu`** to flash your device.
+
+If compilation fails, make sure all submodules are all initialized. Either clone with `--recursive` or use `git submodule update --init --recursive`.
 
 # Build on Linux/macOS
 
