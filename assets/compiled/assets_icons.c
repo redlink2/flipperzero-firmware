@@ -828,7 +828,6 @@ const Icon I_dir_10px = {.width=10,.height=10,.frame_count=1,.frame_rate=0,.fram
 const Icon I_ibutt_10px = {.width=10,.height=10,.frame_count=1,.frame_rate=0,.frames=_I_ibutt_10px};
 const Icon I_ir_10px = {.width=10,.height=10,.frame_count=1,.frame_rate=0,.frames=_I_ir_10px};
 const Icon I_loading_10px = {.width=10,.height=10,.frame_count=1,.frame_rate=0,.frames=_I_loading_10px};
-const Icon I_music_10px = {.width=10,.height=10,.frame_count=1,.frame_rate=0,.frames=_I_music_10px};
 const Icon I_sub1_10px = {.width=10,.height=10,.frame_count=1,.frame_rate=0,.frames=_I_sub1_10px};
 const Icon I_u2f_10px = {.width=10,.height=10,.frame_count=1,.frame_rate=0,.frames=_I_u2f_10px};
 const Icon I_unknown_10px = {.width=10,.height=10,.frame_count=1,.frame_rate=0,.frames=_I_unknown_10px};

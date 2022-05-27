@@ -15,7 +15,6 @@ extern const Icon I_dir_10px;
 extern const Icon I_ibutt_10px;
 extern const Icon I_ir_10px;
 extern const Icon I_loading_10px;
-extern const Icon I_music_10px;
 extern const Icon I_sub1_10px;
 extern const Icon I_u2f_10px;
 extern const Icon I_unknown_10px;
