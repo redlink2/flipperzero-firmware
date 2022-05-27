@@ -2,7 +2,7 @@ name: Sync Upstream from Eng1n33r
 
 env:
   # Required, URL to upstream (fork base)
-  UPSTREAM_URL: "https://github.com/Eng1n33r/flipperzero-firmware"
+  UPSTREAM_URL: "https://github.com/Eng1n33r/flipperzero-firmware.git"
   # Required, token to authenticate bot
   WORKFLOW_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   # Optional, defaults to main
