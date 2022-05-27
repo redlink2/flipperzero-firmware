@@ -16,7 +16,7 @@ Bubble slots: 2
 Slot: 0
 X: 1
 Y: 23
-Text: Another hollywood hacker
+Text: Another \nhollywood hacker
 AlignH: Right
 AlignV: Bottom
 StartFrame: 7
@@ -25,7 +25,7 @@ EndFrame: 9
 Slot: 1
 X: 1
 Y: 23
-Text: I've made better content than this
+Text: I've made better \ncontent than this
 AlignH: Right
 AlignV: Bottom
 StartFrame: 7

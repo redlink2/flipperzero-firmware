@@ -1,164 +1,118 @@
-# Flipper Zero Unleashed Firmware
+# Flipper Zero Redlinked Firmware
+### Quick Start:
 
-<a href="https://ibb.co/5Fgtgmg"><img src="https://i.ibb.co/rsRTRYR/image.png" alt="image" border="0"></a>(https://discord.gg/58D6E8BtTU)
-
-<a href="https://ibb.co/wQ12PVc"><img src="https://i.ibb.co/wQ12PVc/fzCUSTOM.png" alt="fzCUSTOM" border="0"></a>
-
-Welcome to [Flipper Zero](https://flipperzero.one/)'s Custom Firmware repo!
-Our goal is to make any features possible in this device without any stupid limitations! Please help us realize emulation for all dynamic (rolling codes) protocols and brute-force app!
-
-# Clone the Repository
-
-You should clone with
-```shell
-$ git clone --recursive https://github.com/Eng1n33r/flipperzero-firmware.git
+```bash
+git clone --recursive https://github.com/redlink2/flipperzero-redlinked.git
 ```
 
-# Update firmware
+## Differences from the original firmware
 
-[Get Latest Firmware from Update Server](https://github.com/Eng1n33r/flipperzero-firmware)
+<details>
+<summary>Show Changes Made From Orginal Firmware</summary>
 
-Flipper Zero's firmware consists of two components:
+### Plugins:
+- [RF Remix (jimilinuxguy + ESurge, Redlink2)](https://github.com/ESurge/flipperzero-firmware-unirfremix)
+- [Touch Tunes Remote (jimilinuxguy)](https://github.com/jimilinuxguy/flipperzero-universal-rf-remote/tree/028d615c83f059bb2c905530ddb3d4efbd3cbcae/applications/jukebox)
+- [Spectrum Analyzer (jolcese)](https://github.com/jolcese/flipperzero-firmware/tree/spectrum/applications/spectrum_analyzer)
+- [Clock (CompaqDisc, RogueMaster, Redlink2)](https://gist.github.com/CompaqDisc/4e329c501bd03c1e801849b81f48ea61)
+- [WAV Player (Zlo)](https://github.com/flipperdevices/flipperzero-firmware/tree/zlo/wav-player)
+- [Tetris (jeffplang)](https://github.com/jeffplang/flipperzero-firmware/tree/tetris_game/applications/tetris_game)
+- [Flappy Bird (DroomOne)](https://github.com/DroomOne/flipperzero-firmware/tree/dev/applications/flappy_bird)
+- [Zombiez (Dooskington)](https://github.com/Dooskington/flipperzero-zombiez)
+- [Dice Roller (RogueMaster)](https://github.com/RogueMaster/flipperzero-firmware-wPlugins/tree/unleashed/applications/dice)
 
-- Core2 firmware set - proprietary components by ST: FUS + radio stack. FUS is flashed at factory and you should never update it.
-- Core1 Firmware - HAL + OS + Drivers + Applications.
+### Custom Icons:
+- [Clock](https://github.com/redlink2/flipperzero-redlinked/tree/dev/assets/icons/MainMenu/Clock_14)
+- [Music Player](https://github.com/redlink2/flipperzero-redlinked/tree/dev/assets/icons/MainMenu/MusicPlayer_14)
+- [Snake Game](https://github.com/redlink2/flipperzero-redlinked/tree/dev/assets/icons/MainMenu/Snake_14)
+- [Spectrum Analyzer](https://github.com/redlink2/flipperzero-redlinked/tree/dev/assets/icons/MainMenu/SpectrumAnalyzer_14)
+- [Tetris Game](https://github.com/redlink2/flipperzero-redlinked/tree/dev/assets/icons/MainMenu/Tetris_14)
+- [UniRFRemix](https://github.com/redlink2/flipperzero-redlinked/tree/dev/assets/icons/MainMenu/UniversalRF_14)
+- [About Logo](https://github.com/redlink2/flipperzero-redlinked/blob/dev/assets/icons/About/Redlink2_128_64.png)
 
-They both must be flashed in order described.
+### Menu Changes:
+- [Custom Games Submenu](https://github.com/redlink2/flipperzero-redlinked/blob/dev/applications/loader/)
 
-## With STLink
+### Dolphin Dialog Changes:
+- [L1_TV](https://github.com/redlink2/flipperzero-redlinked/blob/dev/assets/dolphin/internal/manifest.txt)
+- [L1_Laptop](https://github.com/redlink2/flipperzero-redlinked/blob/dev/assets/dolphin/external/L1_Laptop_128x51/meta.txt)
+- [L1_Read Books](https://github.com/redlink2/flipperzero-redlinked/blob/dev/assets/dolphin/external/L1_Read_books_128x64/meta.txt)
+- [L1_Sleep](https://github.com/redlink2/flipperzero-redlinked/blob/dev/assets/dolphin/external/L1_Sleep_128x64/meta.txt)
+- [L1_Waves](https://github.com/redlink2/flipperzero-redlinked/blob/dev/assets/dolphin/external/L1_Waves_128x50/meta.txt)
 
-### Core1 Firmware
+</details>
 
-Prerequisites:
+## Build Instructions
 
-- Linux / macOS
-- Terminal
-- [arm-gcc-none-eabi](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads)
-- openocd
+<details>
+<summary>Show Build Instructions</summary>
 
-One liner: `make flash`
+### Clone the repo with:
 
-### Core2 flashing procedures
+```bash
+git clone --recursive https://github.com/redlink2/flipperzero-redlinked.git
 
-Prerequisites:
-
-- Linux / macOS
-- Terminal
-- STM32_Programmer_CLI (v2.5.0) added to $PATH
-
-One liner: `make flash_radio`
-
-## With USB DFU 
-
-1. Download latest [Firmware](https://github.com/Eng1n33r/flipperzero-firmware/releases)
-
-2. Reboot Flipper to Bootloader
- - Press and hold `← Left` + `↩ Back` for reset
- - Release `↩ Back` and keep holding `← Left` until blue LED lights up
- - Release `← Left`
-<!-- ![Switch to DFU sequence](https://habrastorage.org/webt/uu/c3/g2/uuc3g2n36f2sju19rskcvjzjf6w.png) -->
-
-3. Run `dfu-util -D full.dfu -a 0`
-
-# Build with Docker
-
-## Prerequisites
-
-1. Install [Docker Engine and Docker Compose](https://www.docker.com/get-started)
-2. Prepare the container:
-
- ```sh
- docker-compose up -d
- ```
-
-## Compile everything
-
-```sh
-docker-compose exec dev make
+cd flipperzero-redlinked
 ```
 
-Check `dist/` for build outputs.
+### Build a docker container with:
 
-Use **`flipper-z-{target}-full-{suffix}.dfu`** to flash your device.
-
-If compilation fails, make sure all submodules are all initialized. Either clone with `--recursive` or use `git submodule update --init --recursive`.
-
-# Build on Linux/macOS
-
-## macOS Prerequisites
-
-Make sure you have [brew](https://brew.sh) and install all the dependencies:
-```sh
-brew bundle --verbose
+```bash
+sudo docker-compose up -d
 ```
 
-## Linux Prerequisites
+### Clean existing assets with:
 
-### gcc-arm-none-eabi
-
-```sh
-toolchain="gcc-arm-none-eabi-10.3-2021.10"
-toolchain_package="$toolchain-$(uname -m)-linux"
-
-wget -P /opt "https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.10/$toolchain_package.tar.bz2"
-
-tar xjf /opt/$toolchain_package.tar.bz2 -C /opt
-rm /opt/$toolchain_package.tar.bz2
-
-for file in /opt/$toolchain/bin/* ; do ln -s "${file}" "/usr/bin/$(basename ${file})" ; done
+```bash
+sudo docker-compose exec dev make -C assets clean
 ```
 
-### Optional dependencies
+### Then create the assets with:
 
-- openocd (debugging/flashing over SWD)
-- heatshrink (compiling image assets)
-- clang-format (code formatting)
-- dfu-util (flashing over USB DFU)
-- protobuf (compiling proto sources)
-
-For example, to install them on Debian, use:
-```sh
-apt update
-apt install openocd clang-format-13 dfu-util protobuf-compiler
+```bash
+sudo docker-compose exec dev make -C assets all
 ```
 
-heatshrink has to be compiled [from sources](https://github.com/atomicobject/heatshrink).
+### And compile the firmware with:
 
-## Compile everything
-
-```sh
-make
+```bash
+sudo docker-compose exec dev make
 ```
 
-Check `dist/` for build outputs.
+### The compiled firmware can be found in the `/dist/f7/` directory.
 
-Use **`flipper-z-{target}-full-{suffix}.dfu`** to flash your device.
+#### Be sure to flash stock firmware to the Flipper before flashing the redlinked firmware.
 
-## Flash everything
+</details>
 
-Connect your device via ST-Link and run:
-```sh
-make whole
-```
+## Credits
 
-# Links
+### Firmware:
+- [FlipperDevices](https://github.com/flipperdevices/flipperzero-firmware)
+- [Eng1n33r](https://github.com/Eng1n33r/flipperzero-firmware)
+- [MuddledBox](https://github.com/MuddledBox/flipperzero-firmware)
+- [Wetox-Team](https://github.com/wetox-team/flipperzero-firmware)
 
-* Discord: [discord.gg/58D6E8BtTU](https://discord.gg/58D6E8BtTU)
-* Website: [flipperzero.one](https://flipperzero.one)
-* Kickstarter page: [kickstarter.com](https://www.kickstarter.com/projects/flipper-devices/flipper-zero-tamagochi-for-hackers)
-* Forum: [forum.flipperzero.one](https://forum.flipperzero.one/)
+### Plugins:
+- [RF Remix (jimilinuxguy + ESurge, Redlink2)](https://github.com/ESurge/flipperzero-firmware-unirfremix)
+- [Touch Tunes Remote (jimilinuxguy)](https://github.com/jimilinuxguy/flipperzero-universal-rf-remote/tree/028d615c83f059bb2c905530ddb3d4efbd3cbcae/applications/jukebox)
+- [Spectrum Analyzer (jolcese)](https://github.com/jolcese/flipperzero-firmware/tree/spectrum/applications/spectrum_analyzer)
+- [Clock (CompaqDisc, RogueMaster, Redlink2)](https://gist.github.com/CompaqDisc/4e329c501bd03c1e801849b81f48ea61)
+- [WAV Player (Zlo)](https://github.com/flipperdevices/flipperzero-firmware/tree/zlo/wav-player)
 
-# Project structure
+### Games:
+- [Tetris (jeffplang)](https://github.com/jeffplang/flipperzero-firmware/tree/tetris_game/applications/tetris_game)
+- [Flappy Bird (DroomOne)](https://github.com/DroomOne/flipperzero-firmware/tree/dev/applications/flappy_bird)
+- [Zombiez (Dooskington)](https://github.com/Dooskington/flipperzero-zombiez)
+- [Dice Roller (RogueMaster)](https://github.com/RogueMaster/flipperzero-firmware-wPlugins/tree/unleashed/applications/dice)
 
-- `applications`    - Applications and services used in firmware
-- `assets`          - Assets used by applications and services
-- `core`            - Furi Core: os level primitives and helpers
-- `debug`           - Debug tool: GDB-plugins, SVD-file and etc
-- `docker`          - Docker image sources (used for firmware build automation)
-- `documentation`   - Documentation generation system configs and input files
-- `firmware`        - Firmware source code
-- `lib`             - Our and 3rd party libraries, drivers and etc...
-- `make`            - Make helpers
-- `scripts`         - Supplementary scripts and python libraries home
+### Additional Community Credits:
 
-Also pay attention to `ReadMe.md` files inside of those directories.
+- [UberGuidoZ's Flipper Resources](https://github.com/UberGuidoZ/Flipper)
+- [Flipper-IRDB](https://github.com/UberGuidoZ/Flipper-IRDB)
+- [Flipper RTTTL Files](https://github.com/neverfa11ing/FlipperMusicRTTTL)
+- [Touch Tunes](https://github.com/jimilinuxguy/flipperzero-touchtunes)
+- [MuddledBox SubGHz Files](https://github.com/MuddledBox/FlipperZeroSub-GHz)
+- [FlipperAmiibo](https://github.com/Gioman101/FlipperAmiibo)
+- [Amiibo2Flipper](https://github.com/Lucaslhm/AmiiboFlipperConverter)
+- [Flipper Cases](https://github.com/MuddledBox/FlipperZeroCases)

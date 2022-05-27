@@ -853,7 +853,6 @@ bool furi_hal_subghz_start_async_tx(FuriHalSubGhzAsyncTxCallback callback, void*
     furi_assert(callback);
 
     //If transmission is prohibited by regional settings
-    if(furi_hal_subghz_regulation != SubGhzRegulationTxRx) return false;
 
     furi_hal_subghz_async_tx.callback = callback;
     furi_hal_subghz_async_tx.callback_context = context;
