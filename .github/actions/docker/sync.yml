@@ -1,0 +1,36 @@
+name: Sync Upstream from Eng1n33r
+
+env:
+  # Required, URL to upstream (fork base)
+  UPSTREAM_URL: "https://github.com/Eng1n33r/flipperzero-firmware"
+  # Required, token to authenticate bot
+  WORKFLOW_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  # Optional, defaults to main
+  UPSTREAM_BRANCH: "dev"
+  # Optional, defaults to UPSTREAM_BRANCH
+  DOWNSTREAM_BRANCH: "dev"
+  # Optional merge arguments
+  MERGE_ARGS: "--no-ff"
+  # Optional push arguments
+  PUSH_ARGS: ""
+
+# This runs every day on 1801 UTC
+on:
+  schedule:
+    - cron: '8 0,3,6,9,12,14,16,18,20,22 * * *'
+  # Allows manual workflow run (must in default branch to work)
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: GitHub Sync to Upstream Repository
+        uses: dabreadman/sync-upstream-repo@v1.2.0.b
+        with:
+          upstream_repo: ${{ env.UPSTREAM_URL }}
+          upstream_branch: ${{ env.UPSTREAM_BRANCH }}
+          downstream_branch: ${{ env.DOWNSTREAM_BRANCH }}
+          token: ${{ env.WORKFLOW_TOKEN }}
+          merge_args: ${{ env.MERGE_ARGS }}
+          push_args: ${{ env.PUSH_ARGS }}
