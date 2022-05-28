@@ -117,6 +117,59 @@ OK: /any/subghz/HandicapDoor.sub
 
 </details>
 
+<details>
+<summary>Adding music to your Flipper</summary>
+
+#### Using the WAV Player
+
+###### The WAV player can only play WAV files that are BitExact, 8-bit stereo, 2-channel, unsigned, with no headers, 48k PCM.
+
+##### Convert your mp3 to a playable WAV file with:
+
+```
+ffmpeg -i input.mp3 -c:a pcm_u8 -fflags +bitexact -flags:a +bitexact -ac 2 -ar 48k output.wav
+```
+
+##### where "input.mp3" is the mp3 file you want to convert and "output.wav" is the name of the output file.
+
+##### Then add the WAV files to your Flipper's SD card:
+
+###### using qFlipper:
+
+```
+1. Open qFlipper
+2. Plug in your Flipper
+3. Open the "File manager" tab (the third tab from the left)
+4. Navigate to the /ext/ directory
+    // if there is no wav_player folder, create one
+    4a. Right-click and select "New Folder"
+    4b. Name the new folder "wav_player"
+5. Navigate to the wav_player/ folder and select "Upload here"
+6. Navigate to the .wav files you want and select upload
+```
+
+#### Using the Music Player
+
+###### the music player can play RTTTL files, and FMF files.
+
+##### Then add the music files to your Flipper's SD card:
+
+###### using qFlipper:
+
+```
+1. Open qFlipper
+2. Plug in your Flipper
+3. Open the "File manager" tab (the third tab from the left)
+4. Navigate to the /ext/ directory
+    // if there is no music_player folder, create one
+    4a. Right-click and select "New Folder"
+    4b. Name the new folder "music_player"
+5. Navigate to the music_player/ folder and select "Upload here"
+6. Navigate to the music files you want and select upload
+```
+
+</details>
+
 ## Credits
 
 ### Firmware:
