@@ -52,7 +52,7 @@ EndFrame: 13
 Slot: 2
 X: 60
 Y: 23
-Text: What's the \nnext project?
+Text: What's the next project?
 AlignH: Left
 AlignV: Bottom
 StartFrame: 11

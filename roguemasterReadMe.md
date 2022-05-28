@@ -1,28 +1,23 @@
+# [Flipper Zero Firmware](https://github.com/flipperdevices/flipperzero-firmware/blob/dev/ReadMe.md) <= READ THIS READ ME
+- ****This software is for experimental purposes only and is not meant for any illegal activity/purposes. We do not condone illegal activity and strongly encourage keeping transmissions to legal/valid uses allowed by law.**
+- FLASH STOCK FIRST BEFORE UPDATING TO CUSTOM FIRMWARE
+- BUILD WITH COMPACT FLAG SINCE IT IS TOO LARGE
+
 # Clone the Repository
 
 You should clone with 
 ```shell
 $ git clone --recursive https://github.com/RogueMaster/flipperzero-firmware-wPlugins.git
+$ docker-compose up -d
+$ docker-compose exec dev make DEBUG=0 COMPACT=1
 ```
 
-# [Flipper Zero Firmware](https://github.com/flipperdevices/flipperzero-firmware/blob/dev/ReadMe.md) <= READ THIS READ ME
-
-- FLASH STOCK FIRST BEFORE UPDATING TO CUSTOM FIRMWARE
-
-****This software is for experimental purposes only and is not meant for any illegal activity/purposes. We do not condone illegal activity and strongly encourage keeping transmissions to legal/valid uses allowed by law.**
-
 Latest Updates:
-- Latest updates from DEV 533f12a
-- Update for Tetris from creator
-- Update to git settings to remove -dirty 
-- Volume default on music player changed to .25 instead of .75
+- WAV Player fix by atmanos
+- Added 8BALL 'DICE' and new options for 'SEX' dice
+- Latest updates up to DEV 67fbefbe
 - Latest changes to Unleashed 05/25 as of release
-- Added Up To x6 Dice For Dice Roller, and WAR! and SEX?
 - Pulled DEV changes from #1262 (This fixes issues with f6384116)
-- Pulled DEV changes from f6384116
-- Pulled latest DEV changes from 4b45746b
-- Added Dice Roller "game" created by me
-- Added Zombie game placeholder/demo/POC
 
 **Special Instructions:**
 - Download these files into the subghz/assets folder on your SD card. Edit the two `_map` files to contain your specific subghz (.SUB) files.
@@ -51,7 +46,7 @@ Special shout out to these libraries for giving us more fun:
 
 Plugins:
 - [Clock/Stopwatch (By CompaqDisc, Stopwatch & Sound Alert By RogueMaster)](https://gist.github.com/CompaqDisc/4e329c501bd03c1e801849b81f48ea61)
-- [Dice Roller (By RogueMaster)](https://github.com/RogueMaster/flipperzero-firmware-wPlugins/blob/unleashed/applications/dice/dice.c)
+- [Dice Roller Including SEX/WAR/8BALL DICE (By RogueMaster)](https://github.com/RogueMaster/flipperzero-firmware-wPlugins/blob/unleashed/applications/dice/dice.c)
 - [Flappy Bird (By DroomOne)](https://github.com/DroomOne/flipperzero-firmware/tree/dev/applications/flappy_bird)
 - [Menu Changes and Icons (By Redlink)]( https://github.com/redlink2/flipperzero-firmware/tree/menuChanges)
 - [RF Remix (By ESurge)](https://github.com/ESurge/flipperzero-firmware-unirfremix)
@@ -59,7 +54,7 @@ Plugins:
 - [Spectrum Analyzer (By jolcese)](https://github.com/jolcese/flipperzero-firmware/tree/spectrum/applications/spectrum_analyzer)
 - [Tetris (By jeffplang)](https://github.com/jeffplang/flipperzero-firmware/tree/tetris_game/applications/tetris_game)
 - [Touch Tunes Remote (By jimilinuxguy)](https://github.com/jimilinuxguy/flipperzero-universal-rf-remote/tree/028d615c83f059bb2c905530ddb3d4efbd3cbcae/applications/jukebox)
-- [WAV Player (By Zlo)](https://github.com/flipperdevices/flipperzero-firmware/tree/zlo/wav-player)
+- [WAV Player (By Zlo)](https://github.com/flipperdevices/flipperzero-firmware/tree/zlo/wav-player) With Fix From Atmanos
 - [Zombiez (By Dooskington)](https://github.com/Dooskington/flipperzero-zombiez)
 
 Thank you, [MuddleBox](https://github.com/MuddledBox/flipperzero-firmware), [Eng1n33r](https://github.com/Eng1n33r/flipperzero-firmware) & of course, most of all [Flipper Devices](https://github.com/flipperdevices/flipperzero-firmware)!

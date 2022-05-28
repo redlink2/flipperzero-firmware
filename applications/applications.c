@@ -48,7 +48,6 @@ extern int32_t vibro_test_app(void* p);
 extern int32_t bt_hid_app(void* p);
 extern int32_t battery_test_app(void* p);
 extern int32_t text_box_test_app(void* p);
-extern int32_t file_browser_app(void* p);
 
 // Games
 extern int32_t snake_game_app(void* p);
