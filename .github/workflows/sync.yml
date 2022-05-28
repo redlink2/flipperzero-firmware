@@ -4,7 +4,7 @@ env:
   # Required, URL to upstream (fork base)
   UPSTREAM_URL: "https://github.com/Eng1n33r/flipperzero-firmware.git"
   # Required, token to authenticate bot
-  WORKFLOW_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  WORKFLOW_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
   # Optional, defaults to main
   UPSTREAM_BRANCH: "dev"
   # Optional, defaults to UPSTREAM_BRANCH
