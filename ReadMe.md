@@ -84,6 +84,38 @@ sudo docker-compose exec dev make
 #### Be sure to flash stock firmware to the Flipper before flashing the redlinked firmware.
 
 </details>
+<details>
+<summary>Adding your universal_rf_map file to the flipper</summary>
+
+#### Firstly make sure your universal_rf_map file looks like this:
+
+```
+Filetype: Flipper SubGhz RAW File
+Version: 1
+UP: /any/subghz/Tesla_AM270.sub
+DOWN: /any/subghz/Tesla_AM650.sub
+LEFT: /any/subghz/10bit_210mhz.sub
+RIGHT: /any/subghz/10bit-300mhz.sub
+OK: /any/subghz/HandicapDoor.sub
+```
+
+##### You can edit the file names after /any/subghz/ to be any file ending in .sub that you have in the subghz folder on the external SD card.
+###### Be aware that /any/ means SD or internal flash. Be cautious when changing it.
+
+#### Then copy the file to the /ext/subghz/assets/ directory:
+
+##### Using qFlipper:
+
+```
+1. Open qFlipper
+2. Plug in your Flipper
+3. Open the "File manager" tab (the third tab from the left)
+4. Navigate to the /ext/subghz/assets/ directory
+5. Right-click and select "Upload here"
+6. Navigate to the universal_rf_map file and select upload
+```
+
+</details>
 
 ## Credits
 
