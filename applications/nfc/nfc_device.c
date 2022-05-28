@@ -637,6 +637,7 @@ static bool nfc_device_save_mifare_classic_data(FlipperFormat* file, NfcDevice* 
     // Save Mifare Classic specific data
     do {
         if(!flipper_format_write_comment_cstr(file, "Mifare Classic specific data")) break;
+
         if(data->type == MfClassicType1k) {
             if(!flipper_format_write_string_cstr(file, "Mifare Classic type", "1K")) break;
             blocks = 64;

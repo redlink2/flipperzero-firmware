@@ -39,15 +39,13 @@ extern int32_t passport_app(void* p);
 extern int32_t scened_app(void* p);
 extern int32_t storage_test_app(void* p);
 extern int32_t subghz_app(void* p);
-extern int32_t jukebox_app(void *p);
-extern int32_t universal_rf_remote_app(void *p);
-extern int32_t unirfremix_app(void *p);
 extern int32_t usb_mouse_app(void* p);
 extern int32_t usb_test_app(void* p);
 extern int32_t vibro_test_app(void* p);
 extern int32_t bt_hid_app(void* p);
 extern int32_t battery_test_app(void* p);
 extern int32_t text_box_test_app(void* p);
+extern int32_t file_browser_app(void* p);
 
 // Games
 extern int32_t snake_game_app(void* p);
@@ -59,6 +57,8 @@ extern int32_t flappy_game_app(void* p);
 // Plugins
 extern int32_t music_player_app(void* p);
 extern int32_t wav_player_app(void* p);
+extern int32_t universal_rf_remote_app(void* p);
+extern int32_t unirfremix_app(void* p);
 extern int32_t spectrum_analyzer_app(void* p);
 extern int32_t universal_rf_remote_app(void* p);
 extern int32_t clock_app(void* p);
@@ -346,21 +346,21 @@ const FlipperApplication FLIPPER_GAMES[] = {
      .flags = FlipperApplicationFlagDefault},
 #endif
 
-// #ifdef APP_RAYCAST_GAME
-//     {.app = raycast_game_app,
-//      .name = "Raycast Game",
-//      .stack_size = 4096,
-//      .icon = NULL,
-//      .flags = FlipperApplicationFlagDefault},
-// #endif
+    // #ifdef APP_RAYCAST_GAME
+    //     {.app = raycast_game_app,
+    //      .name = "Raycast Game",
+    //      .stack_size = 4096,
+    //      .icon = NULL,
+    //      .flags = FlipperApplicationFlagDefault},
+    // #endif
 
-// #ifdef FLOOPPER_BLOOPPER
-//     {.app = floopper_bloopper,
-//      .name = "Floopper Bloopper",
-//      .stack_size = 1024,
-//      .icon = &A_Plugins_14,
-//      .flags = FlipperApplicationFlagDefault},
-// #endif
+    // #ifdef FLOOPPER_BLOOPPER
+    //     {.app = floopper_bloopper,
+    //      .name = "Floopper Bloopper",
+    //      .stack_size = 1024,
+    //      .icon = &A_Plugins_14,
+    //      .flags = FlipperApplicationFlagDefault},
+    // #endif
 
 };
 

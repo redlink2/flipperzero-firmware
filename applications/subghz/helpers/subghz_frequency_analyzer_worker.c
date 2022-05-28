@@ -182,9 +182,6 @@ static int32_t subghz_frequency_analyzer_worker_thread(void* context) {
                     osDelay(3);
 
                     rssi = furi_hal_subghz_get_rssi();
-
-                    FURI_LOG_T(TAG, "#:%u:%f", frequency, (double)rssi);
-
                     if(frequency_rssi.rssi < rssi) {
                         frequency_rssi.rssi = rssi;
                         frequency_rssi.frequency = frequency;
