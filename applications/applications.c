@@ -50,6 +50,7 @@ extern int32_t file_browser_app(void* p);
 // Games
 extern int32_t snake_game_app(void* p);
 extern int32_t tetris_game_app(void* p);
+extern int32_t zombiez_app(void* p);
 extern int32_t flappy_game_app(void* p);
 // extern int32_t floopper_bloopper(void* p);
 // extern int32_t raycast_game_app(void* p);
@@ -59,9 +60,11 @@ extern int32_t music_player_app(void* p);
 extern int32_t wav_player_app(void* p);
 extern int32_t universal_rf_remote_app(void* p);
 extern int32_t unirfremix_app(void* p);
+extern int32_t jukebox_app(void* p);
 extern int32_t spectrum_analyzer_app(void* p);
 extern int32_t universal_rf_remote_app(void* p);
 extern int32_t clock_app(void* p);
+extern int32_t dice_app(void* p);
 extern int32_t level_up_app(void* p);
 
 // On system start hooks declaration
@@ -338,6 +341,14 @@ const FlipperApplication FLIPPER_GAMES[] = {
      .flags = FlipperApplicationFlagDefault},
 #endif
 
+#ifdef APP_ZOMBIEZ
+    {.app = zombiez_app,
+     .name = "Zombiez",
+     .stack_size = 2048,
+     .icon = &A_Games_14,
+     .flags = FlipperApplicationFlagDefault},
+#endif
+
 #ifdef APP_FLAPPY_GAME
     {.app = flappy_game_app,
      .name = "Flipper Flappy Bird",
@@ -432,6 +443,22 @@ const FlipperApplication FLIPPER_PLUGINS[] = {
      .name = "Music Player",
      .stack_size = 2048,
      .icon = &A_MusicPlayer_14,
+     .flags = FlipperApplicationFlagDefault},
+#endif
+
+#ifdef APP_DICE
+    {.app = dice_app,
+     .name = "Dice Roller",
+     .stack_size = 1024,
+     .icon = &A_Plugins_14,
+     .flags = FlipperApplicationFlagDefault},
+#endif
+
+#ifdef APP_JUKEBOX
+    {.app = jukebox_app,
+     .name = "TouchTunes",
+     .stack_size = 2048,
+     .icon = &A_Plugins_14,
      .flags = FlipperApplicationFlagDefault},
 #endif
 
