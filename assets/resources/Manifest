@@ -1,5 +1,5 @@
 V:0
-T:1653717069
+T:1654026960
 D:badusb
 D:dolphin
 D:infrared
@@ -7,6 +7,7 @@ D:music_player
 D:nfc
 D:subghz
 D:u2f
+F:7cbadcad155a343917c7ea6afaaf849e:735:badusb/AcidBurn.txt
 F:e538ad2ce5a06ec45e1b5b24824901b1:1552:badusb/DEMO_WIN_Flipper.txt
 F:b0933009e964daea45d878b52f9f8225:1680:badusb/DEMO_WIN_Matrix.txt
 F:ef4a340c0abacebb60a55ee9150c1ac7:8589:badusb/DEMO_WIN_MonaLisa.txt
@@ -257,15 +258,9 @@ D:music_player/anthem
 D:music_player/games
 D:music_player/media
 D:music_player/songs
-F:d41d8cd98f00b204e9800998ecf8427e:0:music_player/Avrill Lavigne - Sk8er Boi.txt
-F:d41d8cd98f00b204e9800998ecf8427e:0:music_player/Axel F.txt
-F:d41d8cd98f00b204e9800998ecf8427e:0:music_player/Backstreet Boys - I Want It That Way.txt
-F:d41d8cd98f00b204e9800998ecf8427e:0:music_player/Benny Benassi - Satisfaction.txt
-F:d41d8cd98f00b204e9800998ecf8427e:0:music_player/Circus Theme.txt
 F:6e45147681b5d612e79942763f80f031:413:music_player/Evangelion.txt
 F:8f97f0e28713829493fd7f2f9610fee5:523:music_player/HelloWorld.txt
-F:d41d8cd98f00b204e9800998ecf8427e:0:music_player/Rasputin.txt
-F:d41d8cd98f00b204e9800998ecf8427e:0:music_player/Sex And The City.txt
+F:c0d3eb09fd596d1ba8af28e62abcb725:173:music_player/Tetris.txt
 F:9c9627f97a03f1abe5570095002e56ef:469:music_player/marble_machine.fmf
 F:63afb32b1f6350d4aed237bd7c57c31b:143:music_player/anthem/anthem-Japan.txt
 F:d5b86340f632a5bedde38e7b7549c9d2:199:music_player/anthem/anthem-Netherlands.txt
