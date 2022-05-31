@@ -1,5 +1,5 @@
 /*
- * fast-chess.h
+ * fast_chess.h
  *
  *  Created on: 20 de set de 2016
  *      Author: fvj
@@ -16,7 +16,7 @@
 
 #define ENGINE_VERSION "v1.8.1"
 
-#define ENGINE_NAME "github.com/fredericojordan/fast-chess " ENGINE_VERSION
+#define ENGINE_NAME "github.com/fredericojordan/fast_chess " ENGINE_VERSION
 #define HUMAN_NAME "Unknown Human Player"
 
 #define NUM_SQUARES (64)

@@ -1,6 +1,6 @@
 /*
  ============================================================================
- Name        : fast-chess.c
+ Name        : fast_chess.c
  Author      : Frederico Jordan <fredericojordan@gmail.com>
  Version     :
  Copyright   : Copyright (c) 2016 Frederico Jordan
@@ -15,7 +15,7 @@
 #include <time.h>
 #include <ctype.h>
 
-#include "fast-chess.h"
+#include "fast_chess.h"
 
 char FILES[8] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
 char RANKS[8] = {'1', '2', '3', '4', '5', '6', '7', '8'};
@@ -256,7 +256,7 @@ int toFen(char * fen, Position * position) {
     fen[charCount-1] = ' ';
 
     // ===== HALF MOVE CLOCK =====
-    snprintf(&fen[charCount++], 2, "%d", position->halfmoveClock);
+    snprintf(&fen[charCount++], 2, "%s/", position->halfmoveClock);
     if (position->halfmoveClock >= 10) {
         charCount++;
         if (position->halfmoveClock >= 100) {
@@ -266,7 +266,7 @@ int toFen(char * fen, Position * position) {
     fen[charCount++] = ' ';
 
     // ===== FULL MOVE NUMBER =====
-    snprintf(&fen[charCount++], 2, "%d", position->fullmoveNumber);
+    snprintf(&fen[charCount++], 2, "%s/", position->fullmoveNumber);
     if (position->fullmoveNumber >= 10) {
         charCount++;
         if (position->fullmoveNumber >= 100) {
@@ -296,7 +296,7 @@ int toMinFen(char * fen, Position * position) {
             emptyCount++;
         } else {
             if (emptyCount != 0) {
-                snprintf(&fen[charCount++], 2, "%d", emptyCount);
+                snprintf(&fen[charCount++], 2, "%s/", emptyCount);
                 emptyCount = 0;
             }
             fen[charCount++] = bb2char(bb, &(position->board));
@@ -305,7 +305,7 @@ int toMinFen(char * fen, Position * position) {
         file++;
         if ( file > 7 ) {
             if (emptyCount != 0) {
-                snprintf(&fen[charCount++], 2, "%d", emptyCount);
+                snprintf(&fen[charCount++], 2, "%s/", emptyCount);
                 emptyCount = 0;
             }
             file = 0;

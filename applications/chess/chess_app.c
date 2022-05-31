@@ -1,11 +1,11 @@
 #include <furi.h>
-#include <furi-hal.h>
+#include <furi_hal.h>
 #include <gui/gui.h>
 #include <gui/gui_i.h>
 #include <input/input.h>
-#include <notification/notification-messages.h>
+#include <notification/notification_messages.h>
 
-#include "fast-chess.h"
+#include "fast_chess.h"
 
 static bool flag = true;
 static bool should_exit = false;
@@ -16,6 +16,11 @@ static uint32_t anim = 0;
 static char white_move_str[8] = "", black_move_str[8] = ""; // last moves
 
 static NotificationApp* notification;
+
+typedef enum {
+    EventTypeTick,
+    EventTypeKey,
+} EventType;
 
 typedef struct {
     uint8_t col, row;
@@ -164,7 +169,7 @@ static void make_move(uint8_t file1, uint8_t rank1, uint8_t file2, uint8_t rank2
     move2str(white_move_str, game, game->moveListLen - 1);
     notify_click();
     black_move_str[0] = 0;
-    anim = millis();
+    anim = furi_hal_get_tick();
     thinking = true;
 }
 
@@ -178,7 +183,7 @@ static int32_t make_ai_move(void* context) {
     move2str(black_move_str, game, game->moveListLen - 1);
     notify_click();
     thinking = false;
-    anim = millis();
+    anim = furi_hal_get_tick();
     return 0;
 }
 
@@ -188,7 +193,7 @@ static int32_t ai_thread(void* context) {
     while(true) {
         if (should_exit) break;
         if (thinking) make_ai_move(context);
-        delay(100);
+        osDelay(100);
     }
     return 0;
 }
@@ -266,7 +271,7 @@ static void chess_draw_callback(Canvas* canvas, void* ctx) {
                 int x = col * 8;
                 int y = row * 8;
 
-                int dt = millis() - anim;
+                int dt = furi_hal_get_tick() - anim;
                 if (anim && dt >= 300) {
                     anim = 0;
                 }
@@ -384,7 +389,7 @@ int32_t chess_app(void* p) {
 
     should_exit = false;
 
-    game = furi_alloc(sizeof(Game));
+    game = realloc(NULL, sizeof(Game));
 
     setup_engine();
     run_ai_thread();
@@ -392,7 +397,7 @@ int32_t chess_app(void* p) {
     // test_engine();
 
     while(!should_exit) {
-        delay(100);
+        osDelay(100);
         if (!thinking) {
             flag = !flag;
             should_update_screen = true;
@@ -404,10 +409,10 @@ int32_t chess_app(void* p) {
             view_port_update(view_port);
         }
         // flag = true;
-        // delay(40);
+        // osDelay(40);
         // flag = false;
         // view_port_update(view_port);
-        // delay(80);
+        // osDelay(80);
     }
 
     furi_thread_join(worker_thread);
