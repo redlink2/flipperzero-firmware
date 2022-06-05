@@ -471,7 +471,7 @@ const FlipperApplication FLIPPER_PLUGINS[] = {
 
 };
 
-const size_t FLIPPER_GAMES_COUNT = COUNT_OF(FLIPPER_GAMES);
+const size_t FLIPPER_PLUGINS_COUNT = COUNT_OF(FLIPPER_PLUGINS);
 
 // Debug menu
 const FlipperApplication FLIPPER_DEBUG_APPS[] = {
