@@ -252,6 +252,12 @@ uint8_t furi_hal_subghz_get_lqi() {
 }
 
 bool furi_hal_subghz_is_frequency_valid(uint32_t value) {
+    if(!(value >= 299999755 && value <= 348000335) &&
+       !(value >= 386999938 && value <= 464000000) &&
+       !(value >= 778999847 && value <= 928000000)) {
+        return false;
+    }
+
     return true;
 }
 

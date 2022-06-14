@@ -1,5 +1,5 @@
-# ----------------------------- 
-# Last update June 7, 2022
+# Last update June 12, 2022
+# -------------------------
 # MIFARE DEFAULT KEYS
 #   -- ICEMAN FORK VERSION --
 #   -- CONTRIBUTE TO THIS LIST, SHARING IS CARING --
@@ -3575,9 +3575,10 @@ D27058C6E2C7
 E19504C39461
 FA1FBB3F0F1F
 FF16014FEFC7
-# /-------------------\
+#  
 # Cracked by UberGuidoZ
-# \-------------------/
+# https://github.com/UberGuidoZ
+#   
 # BadgeMaker Leaked
 1A1B1C1D1E1F
 1665FE2AE945
