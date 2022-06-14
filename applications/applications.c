@@ -221,11 +221,11 @@ const size_t FLIPPER_SYSTEM_APPS_COUNT = COUNT_OF(FLIPPER_SYSTEM_APPS);
 // Main menu APP
 const FlipperApplication FLIPPER_APPS[] = {
 
-#ifdef APP_UNIVERSALRF
+#ifdef APP_UNIRFREMIX
     {.app = unirfremix_app,
      .name = "Universal-RF",
      .stack_size = 2048,
-     .icon = &A_UniversalRF_14,
+     .icon = &A_UniRFRemix_14,
      .flags = FlipperApplicationFlagDefault},
 #endif
 
@@ -240,17 +240,9 @@ const FlipperApplication FLIPPER_APPS[] = {
 #ifdef APP_SPECTRUM_ANALYZER
     {.app = spectrum_analyzer_app,
      .name = "Spectrum Analyzer",
-     .stack_size = 2024,
+     .stack_size = 2048,
      .icon = &A_SpectrumAnalyzer_14,
      .flags = FlipperApplicationFlagDefault},
-#endif
-
-#ifdef APP_SPECTRUM_ANALYZER
-    {.app = spectrum_analyzer_app, 
-    .name = "Spectrum Analyzer", 
-    .stack_size = 1024, 
-    .icon = &A_SpectrumAnalyzer_14,
-    .flags = FlipperApplicationFlagDefault},
 #endif
 
 #ifdef APP_LF_RFID
@@ -331,6 +323,14 @@ const size_t FLIPPER_APPS_COUNT = COUNT_OF(FLIPPER_APPS);
 
 const FlipperApplication FLIPPER_GAMES[] = {
 
+#ifdef APP_VIDEO_POKER
+    {.app = video_poker_app,
+     .name = "Video Poker",
+     .stack_size = 1024,
+     .icon = &A_Plugins_14,
+     .flags = FlipperApplicationFlagDefault},
+#endif
+
 #ifdef APP_SNAKE_GAME
     {.app = snake_game_app,
      .name = "Snake Game",
@@ -347,14 +347,6 @@ const FlipperApplication FLIPPER_GAMES[] = {
      .flags = FlipperApplicationFlagDefault},
 #endif
 
-#ifdef APP_CHIP8
-    {.app = chip8_app,
-     .name = "CHIP-8",
-     .stack_size = 4096,
-     .icon = &A_Plugins_14,
-     .flags = FlipperApplicationFlagDefault},
-#endif
-
 #ifdef APP_TANKS_GAME
     {.app = tanks_game_app,
      .name = "Tanks",
@@ -363,10 +355,10 @@ const FlipperApplication FLIPPER_GAMES[] = {
      .flags = FlipperApplicationFlagDefault},
 #endif
 
-#ifdef APP_VIDEO_POKER
-    {.app = video_poker_app,
-     .name = "Video Poker",
-     .stack_size = 1024,
+#ifdef APP_CHIP8
+    {.app = chip8_app,
+     .name = "CHIP-8",
+     .stack_size = 4096,
      .icon = &A_Plugins_14,
      .flags = FlipperApplicationFlagDefault},
 #endif
