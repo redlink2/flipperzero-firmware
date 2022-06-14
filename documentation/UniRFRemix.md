@@ -16,6 +16,12 @@ universal_rf_map
 
 Hold Back to Exit
 ```
+
+
+### **Update: Now you can create file with `.txt` extension `subghz/assets/universal_rf_map.txt`**
+#### **So it can be edited without PC, app looks for this file first, if no `universal_rf_map.txt` file found, standard file will be used**
+
+
 ## Setting up the `subghz/assets/universal_rf_map` file:
 
 ```
@@ -37,4 +43,36 @@ The UP/DOWN/LEFT/RIGHT/OK file locations must be set to the specific file you wa
 
 The ULABEL/DLABEL/LLABEL/RLABEL/OKLABEL variables should be set to the text to be displayed for each of the files set earlier.
 
+## Example:
 
+```
+Filetype: Flipper SubGhz RAW File
+Version: 1
+UP: /ext/subghz/Fan1.sub
+DOWN: /ext/subghz/Fan2.sub
+LEFT: /ext/subghz/Door.sub
+RIGHT: /ext/subghz/Garage3.sub
+OK: /ext/subghz/Garage3l.sub
+ULABEL: Fan ON
+DLABEL: Fan OFF
+LLABEL: Doorbell
+RLABEL: Garage OPEN
+OKLABEL: Garage CLOSE
+```
+
+## Notes
+* ##### App Usage
+  - Press a button to send the assigned capture file.
+  - Press Back button to set how many repeats the app should send. Capped at 5 repeats.
+  - Hold Back button to exit app.
+  - Only RAW SubGhz captures are supported currently.
+  - No skip function.
+
+* ##### Universal RF Map
+  - Backwards compatible with [jimilinuxguy Universal RF Remote](https://github.com/jimilinuxguy/flipperzero-universal-rf-remote) map file. You should be able to use the map file as is with both versions.
+  - Recommend that you update the map file (if you using "jimilinuxguy's Universal RF" file) to the version included in this repo.
+  - You can also create file with `.txt` extension `subghz/assets/universal_rf_map.txt` and this file will be used instead of default file
+  - File path should not have any spaces or special characters (- and _ excluded).
+  - Labels are limited to 12 characters.
+    - Why? This is to prevent overlapping elements on screen.
+    - For example: If you set your label or file to ```WWWWWWWWWWWWWWW``` you'll be over the screen limits.
