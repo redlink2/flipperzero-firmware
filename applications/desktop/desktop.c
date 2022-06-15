@@ -10,6 +10,7 @@
 #include "animations/animation_manager.h"
 #include "desktop/scenes/desktop_scene.h"
 #include "desktop/scenes/desktop_scene_i.h"
+#include "desktop/views/desktop_view_dumb_menu.h"
 #include "desktop/views/desktop_view_locked.h"
 #include "desktop/views/desktop_view_pin_input.h"
 #include "desktop/views/desktop_view_pin_timeout.h"
@@ -162,6 +163,7 @@ Desktop* desktop_alloc() {
         desktop->view_dispatcher, desktop_back_event_callback);
 
     desktop->lock_menu = desktop_lock_menu_alloc();
+    desktop->dumb_menu = desktop_dumb_menu_alloc();
     desktop->debug_view = desktop_debug_alloc();
     desktop->hw_mismatch_popup = popup_alloc();
     desktop->locked_view = desktop_view_locked_alloc();
@@ -195,6 +197,10 @@ Desktop* desktop_alloc() {
         desktop->view_dispatcher,
         DesktopViewIdLockMenu,
         desktop_lock_menu_get_view(desktop->lock_menu));
+    view_dispatcher_add_view(
+        desktop->view_dispatcher,
+        DesktopViewIdDumbMenu,
+        desktop_dumb_menu_get_view(desktop->dumb_menu));
     view_dispatcher_add_view(
         desktop->view_dispatcher, DesktopViewIdDebug, desktop_debug_get_view(desktop->debug_view));
     view_dispatcher_add_view(
@@ -255,6 +261,7 @@ void desktop_free(Desktop* desktop) {
     furi_record_close("input_events");
 
     view_dispatcher_remove_view(desktop->view_dispatcher, DesktopViewIdMain);
+    view_dispatcher_remove_view(desktop->view_dispatcher, DesktopViewIdDumbMenu);
     view_dispatcher_remove_view(desktop->view_dispatcher, DesktopViewIdLockMenu);
     view_dispatcher_remove_view(desktop->view_dispatcher, DesktopViewIdLocked);
     view_dispatcher_remove_view(desktop->view_dispatcher, DesktopViewIdDebug);
@@ -271,6 +278,7 @@ void desktop_free(Desktop* desktop) {
     view_stack_free(desktop->locked_view_stack);
     desktop_view_locked_free(desktop->locked_view);
     desktop_lock_menu_free(desktop->lock_menu);
+    desktop_dumb_menu_free(desktop->dumb_menu);
     desktop_view_locked_free(desktop->locked_view);
     desktop_debug_free(desktop->debug_view);
     popup_free(desktop->hw_mismatch_popup);

@@ -2,7 +2,7 @@
 #include <gui/elements.h>
 
 #include "../desktop_i.h"
-#include "desktop_view_dumb.h"
+#include "desktop_view_dumb_menu.h"
 
 #define DUMB_ITEMS_NB 3
 
@@ -16,14 +16,14 @@ void desktop_dumb_set_callback(
     dumb_menu->context = context;
 )
 
-void desktop_dumb_set_idx(DesktopDumbMenuView* dumb_menu, uint8_t idx) {
-    furi_assert(idx < DUMB_ITEMS_NB);
-    with_view_model(
-        dumb_menu->view, (DesktopDumbMenuViewModel * model) {
-            model->idx = idx;
-            return true;
-        });
-}
+// void desktop_dumb_menu_set_idx(DesktopDumbMenuView* dumb_menu, uint8_t idx) {
+//     furi_assert(idx < DUMB_ITEMS_NB);
+//     with_view_model(
+//         dumb_menu->view, (DesktopDumbMenuViewModel * model) {
+//             model->idx = idx;
+//             return true;
+//         });
+// }
 
 static void dumb_menu_callback(void* context, uint8_t index) {
     furi_assert(context);
@@ -62,6 +62,11 @@ void dumb_menu_render(Canvas* canvas, void* model) {
     }
 }
 
+View* desktop_dumb_menu_get_view(DesktopDumbMenuView* dumb_menu) {
+    furi_assert(dumb_menu);
+    return lock_menu->view;
+}
+
 bool desktop_dumb_menu_input(InputEvent* event, void* context) {
     furi_assert(event);
     furi_assert(context);
@@ -71,7 +76,7 @@ bool desktop_dumb_menu_input(InputEvent* event, void* context) {
 
     if(event->type != InputTypeShort) return false;
     with_view_model(
-        lock_menu->view, (DesktopLockMenuViewModel * model) {
+        dumb_menu->view, (DesktopLockMenuViewModel * model) {
             model->hint_timeout = 0; // clear hint timeout
             if(event->key == InputKeyUp) {
                 model->idx = CLAMP(model->idx - 1, DUMB_ITEMS_NB - 1, 0);
@@ -83,7 +88,7 @@ bool desktop_dumb_menu_input(InputEvent* event, void* context) {
         });
 
     if(event->key == InputKeyBack) {
-        dumb_menu->callback(DesktopDumbMenuEventBack, dumb_menu->context);
+        dumb_menu->callback(DesktopDumbMenuEventExit, dumb_menu->context);
     } else if(event->key == InputKeyOk) {
         dumb_menu_callback(dumb_menu, idx);
     }
@@ -102,8 +107,8 @@ DesktopDumbMenuView* desktop_dumb_menu_alloc() {
     return dumb_menu;
 }
 
-void desktop_dumb_free(DesktopDumbMenuView* dumb_menu) {
-    furi_assert(dumb_menu);
-    view_free(dumb_menu->view);
-    free(dumb_menu);
+void desktop_dumb_menu_free(DesktopDumbMenuView* dumb_menu_view) {
+    furi_assert(dumb_menu_view);
+    view_free(dumb_menu_view->view);
+    free(dumb_menu_view);
 }

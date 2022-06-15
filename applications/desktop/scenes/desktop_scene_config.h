@@ -1,5 +1,6 @@
 ADD_SCENE(desktop, main, Main)
 ADD_SCENE(desktop, lock_menu, LockMenu)
+ADD_SCENE(desktop, dumb_menu, DumbMenu)
 ADD_SCENE(desktop, debug, Debug)
 ADD_SCENE(desktop, hw_mismatch, HwMismatch)
 ADD_SCENE(desktop, fault, Fault)

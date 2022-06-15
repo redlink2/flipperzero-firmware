@@ -8,6 +8,7 @@
 #include "../desktop_i.h"
 #include "../desktop_settings/desktop_settings.h"
 #include "../views/desktop_view_dumb_menu.h"
+#include "../views/desktop_view_main.h"
 #include "desktop_scene_i.h"
 #include "desktop_scene.h"
 
@@ -28,33 +29,20 @@ void desktop_scene_dumb_menu_on_enter(void* context) {
 }
 
 bool desktop_scene_dumb_menu_on_event(void* context, SceneManagerEvent event) {
-    Desktop* desktop = (Desktop*)context;
+    // Desktop* desktop = (Desktop*)context;
+    Desktop* desktop = context;
     bool consumed = false;
 
     if(event.type == SceneManagerEventTypeCustom) {
         switch(event.event) {
-        case DesktopDumbMenuEventDumb:
-            scene_manager_set_scene_state(desktop->scene_manager, DesktopSceneDumbMenu, 0);
-            desktop_dumb(desktop);
+        case DesktopDumbMenuEventGames:
+            desktop->callback(DesktopDumbMenuEventGames, desktop->context);
             consumed = true;
             break;
-        case DesktopDumbMenuEventPinLock:
-            if(desktop->settings.pin_code.length > 0) {
-                desktop_pin_lock(&desktop->settings);
-                desktop_dumb(desktop);
-            } else {
-                LoaderStatus status =
-                    loader_start(desktop->loader, "Desktop", DESKTOP_SETTINGS_RUN_PIN_SETUP_ARG);
-                if(status == LoaderStatusOk) {
-                    scene_manager_set_scene_state(desktop->scene_manager, DesktopSceneLockMenu, 1);
-                } else {
-                    FURI_LOG_E(TAG, "Unable to start desktop settings");
-                }
-            }
+        case DesktopDumbMenuEventApps:
             consumed = true;
             break;
         case DesktopLockMenuEventExit:
-            scene_manager_set_scene_state(desktop->scene_manager, DesktopSceneLockMenu, 0);
             scene_manager_search_and_switch_to_previous_scene(
                 desktop->scene_manager, DesktopSceneMain);
             consumed = true;

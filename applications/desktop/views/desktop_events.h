@@ -30,8 +30,8 @@ typedef enum {
     DesktopLockMenuEventPinLock,
     DesktopLockMenuEventExit,
 
-    DesktopArchiveEventGames,
-    DesktopArchiveEventApps,
+    DesktopDumbMenuEventGames,
+    DesktopDumbMenuEventApps,
     DesktopDumbMenuEventExit,
 
     DesktopAnimationEventCheckAnimation,

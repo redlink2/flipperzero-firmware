@@ -6,6 +6,7 @@
 #include "views/desktop_view_pin_input.h"
 #include "views/desktop_view_locked.h"
 #include "views/desktop_view_main.h"
+#include "views/desktop_view_dumb_menu.h"
 #include "views/desktop_view_lock_menu.h"
 #include "views/desktop_view_debug.h"
 #include "desktop/desktop_settings/desktop_settings.h"
@@ -24,6 +25,7 @@
 
 typedef enum {
     DesktopViewIdMain,
+    DesktopViewIdDumbMenu,
     DesktopViewIdLockMenu,
     DesktopViewIdLocked,
     DesktopViewIdDebug,
@@ -42,6 +44,7 @@ struct Desktop {
     SceneManager* scene_manager;
 
     Popup* hw_mismatch_popup;
+    DesktopDumbMenuView* dumb_menu;
     DesktopLockMenuView* lock_menu;
     DesktopDebugView* debug_view;
     DesktopViewLocked* locked_view;

@@ -17,7 +17,7 @@ typedef struct {
     uint8_t idx;
 } DesktopDumbMenuViewModel;
 
-void desktop_dumb_set_callback(
+void desktop_dumb_menu_set_callback(
     DesktopDumbMenuView* dumb_menu,
     DesktopDumbMenuViewCallback callback,
     void* context);
