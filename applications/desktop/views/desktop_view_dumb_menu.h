@@ -11,7 +11,7 @@ struct DesktopDumbMenuView {
     View* view;
     DesktopDumbMenuViewCallback callback;
     void* context;
-);
+};
 
 typedef struct {
     uint8_t idx;
