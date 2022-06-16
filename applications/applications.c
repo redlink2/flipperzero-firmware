@@ -335,7 +335,7 @@ const FlipperApplication FLIPPER_GAMES[] = {
 
 #ifdef APP_SNAKE_GAME
     {.app = snake_game_app,
-     .name = "Snake Game",
+     .name = "Snake",
      .stack_size = 1024,
      .icon = &A_Snake_14,
      .flags = FlipperApplicationFlagDefault},
@@ -343,7 +343,7 @@ const FlipperApplication FLIPPER_GAMES[] = {
 
 #ifdef APP_TETRIS_GAME
     {.app = tetris_game_app,
-     .name = "Tetris Game",
+     .name = "Tetris",
      .stack_size = 1024,
      .icon = &A_Tetris_14,
      .flags = FlipperApplicationFlagDefault},
@@ -351,18 +351,19 @@ const FlipperApplication FLIPPER_GAMES[] = {
 
 #ifdef APP_ARKANOID_GAME
     {.app = arkanoid_game_app,
-     .name = "Arkanoid Game",
+     .name = "Arkanoid",
      .stack_size = 1024,
-     .icon = &A_Arkanoid_14,
+     .icon = &A_Plugins_14,
      .flags = FlipperApplicationFlagDefault},
 #endif
 
 #ifdef APP_TICTACTOE_GAME
     {.app = tictactoe_game_app,
-     .name = "Tic-Tac-Toe Game",
+     .name = "Tic-Tac-Toe",
      .stack_size = 1024,
-     .icon = &A_TicTacToe_14,
+     .icon = &A_Plugins_14,
      .flags = FlipperApplicationFlagDefault},
+#endif
 
 
 #ifdef APP_TANKS_GAME
@@ -383,7 +384,7 @@ const FlipperApplication FLIPPER_GAMES[] = {
 
 #ifdef APP_RAYCAST_GAME
     {.app = raycast_game_app,
-     .name = "Raycast Game",
+     .name = "Backrooms Explorer",
      .stack_size = 4096,
      .icon = &A_Plugins_14,
      .flags = FlipperApplicationFlagDefault},
