@@ -47,12 +47,14 @@ extern int32_t text_box_test_app(void* p);
 extern int32_t file_browser_app(void* p);
 
 // Games
+extern int32_t video_poker_app(void *p);
 extern int32_t snake_game_app(void* p);
 extern int32_t tetris_game_app(void* p);
-extern int32_t chip8_app(void *p);
+extern int32_t tictactoe_game_app(void* p);
+extern int32_t arkanoid_game_app(void* p);
 extern int32_t tanks_game_app(void *p);
-extern int32_t video_poker_app(void *p);
 extern int32_t raycast_game_app(void* p);
+// extern int32_t chip8_app(void *p);
 
 // Plugins
 extern int32_t clock_app(void* p);
@@ -347,6 +349,21 @@ const FlipperApplication FLIPPER_GAMES[] = {
      .flags = FlipperApplicationFlagDefault},
 #endif
 
+#ifdef APP_ARKANOID_GAME
+    {.app = arkanoid_game_app,
+     .name = "Arkanoid Game",
+     .stack_size = 1024,
+     .icon = &A_Arkanoid_14,
+     .flags = FlipperApplicationFlagDefault},
+#endif
+
+#ifdef APP_TICTACTOE_GAME
+    {.app = tictactoe_game_app,
+     .name = "Tic-Tac-Toe Game",
+     .stack_size = 1024,
+     .icon = &A_TicTacToe_14,
+     .flags = FlipperApplicationFlagDefault},
+
 
 #ifdef APP_TANKS_GAME
     {.app = tanks_game_app,
@@ -356,13 +373,13 @@ const FlipperApplication FLIPPER_GAMES[] = {
      .flags = FlipperApplicationFlagDefault},
 #endif
 
-#ifdef APP_CHIP8
-    {.app = chip8_app,
-     .name = "CHIP-8",
-     .stack_size = 4096,
-     .icon = &A_Plugins_14,
-     .flags = FlipperApplicationFlagDefault},
-#endif
+// #ifdef APP_CHIP8
+//     {.app = chip8_app,
+//      .name = "CHIP-8",
+//      .stack_size = 4096,
+//      .icon = &A_Plugins_14,
+//      .flags = FlipperApplicationFlagDefault},
+// #endif
 
 #ifdef APP_RAYCAST_GAME
     {.app = raycast_game_app,
