@@ -347,6 +347,7 @@ const FlipperApplication FLIPPER_GAMES[] = {
      .flags = FlipperApplicationFlagDefault},
 #endif
 
+
 #ifdef APP_TANKS_GAME
     {.app = tanks_game_app,
      .name = "Tanks",
