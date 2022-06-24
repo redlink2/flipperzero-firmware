@@ -458,7 +458,7 @@ const FlipperApplication FLIPPER_PLUGINS[] = {
     {.app = music_player_app,
      .name = "Music Player",
      .stack_size = 2048,
-     .icon = &A_MusicPlayer_14,
+     .icon = NULL,
      .flags = FlipperApplicationFlagDefault},
 #endif
 
@@ -491,7 +491,7 @@ const FlipperApplication FLIPPER_PLUGINS[] = {
     {.app = arkanoid_game_app,
      .name = "Arkanoid",
      .stack_size = 1024,
-     .icon = &A_Plugins_14,
+     .icon = NULL,
      .flags = FlipperApplicationFlagDefault},
 #endif
 
@@ -499,7 +499,7 @@ const FlipperApplication FLIPPER_PLUGINS[] = {
     {.app = tictactoe_game_app,
      .name = "Tic Tac Toe",
      .stack_size = 1024,
-     .icon = &A_Plugins_14,
+     .icon = NULL,
      .flags = FlipperApplicationFlagDefault},
 #endif
 
