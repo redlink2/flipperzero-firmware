@@ -46,12 +46,14 @@ extern int32_t text_box_test_app(void* p);
 extern int32_t file_browser_app(void* p);
 
 // Games
-extern int32_t video_poker_app(void *p);
+extern int32_t video_poker_app(void* p);
+extern int32_t game_2048_app(void* p);
+extern int32_t game_of_life_app(void* p);
 extern int32_t snake_game_app(void* p);
 extern int32_t tetris_game_app(void* p);
-extern int32_t tictactoe_game_app(void* p);
 extern int32_t arkanoid_game_app(void* p);
-extern int32_t tanks_game_app(void *p);
+extern int32_t tictactoe_game_app(void* p);
+extern int32_t tanks_game_app(void* p);
 extern int32_t raycast_game_app(void* p);
 // extern int32_t chip8_app(void *p);
 
@@ -59,12 +61,11 @@ extern int32_t raycast_game_app(void* p);
 extern int32_t clock_app(void* p);
 extern int32_t music_player_app(void* p);
 extern int32_t wav_player_app(void* p);
-extern int32_t file_browser_app(void *p);
+extern int32_t file_browser_app(void* p);
 extern int32_t dice_app(void* p);
-extern int32_t mouse_jiggler_app(void *p);
 extern int32_t unirfremix_app(void* p);
 extern int32_t spectrum_analyzer_app(void* p);
-extern int32_t hid_analyzer_app(void *p);
+extern int32_t hid_analyzer_app(void* p);
 
 // On system start hooks declaration
 extern void bt_on_system_start();
@@ -332,6 +333,22 @@ const FlipperApplication FLIPPER_GAMES[] = {
      .flags = FlipperApplicationFlagDefault},
 #endif
 
+#ifdef APP__GAME_2048
+    {.app = game_2048_app,
+     .name = "2048",
+     .stack_size = 1024,
+     .icon = &A_Plugins_14,
+     .flags = FlipperApplicationFlagDefault},
+#endif
+
+#ifdef APP_GAME_OF_LIFE
+    {.app = game_of_life_app,
+     .name = "Game of Life",
+     .stack_size = 1024,
+     .icon = &A_Plugins_14,
+     .flags = FlipperApplicationFlagDefault},
+#endif
+
 #ifdef APP_SNAKE_GAME
     {.app = snake_game_app,
      .name = "Snake",
@@ -363,7 +380,6 @@ const FlipperApplication FLIPPER_GAMES[] = {
      .icon = &A_Plugins_14,
      .flags = FlipperApplicationFlagDefault},
 #endif
-
 
 #ifdef APP_TANKS_GAME
     {.app = tanks_game_app,
@@ -475,31 +491,6 @@ const FlipperApplication FLIPPER_PLUGINS[] = {
      .name = "HID Analyzer",
      .stack_size = 2048,
      .icon = &A_Plugins_14,
-     .flags = FlipperApplicationFlagDefault},
-#endif
-
-#ifdef APP_MOUSE_JIGGLER
-    {.app = mouse_jiggler_app,
-     .name = "Mouse Jiggler",
-     .stack_size = 1024,
-     .icon = &A_Plugins_14,
-     .flags = FlipperApplicationFlagDefault},
-#endif
-
-
-#ifdef APP_ARKANOID_GAME
-    {.app = arkanoid_game_app,
-     .name = "Arkanoid",
-     .stack_size = 1024,
-     .icon = NULL,
-     .flags = FlipperApplicationFlagDefault},
-#endif
-
-#ifdef APP_TICTACTOE_GAME
-    {.app = tictactoe_game_app,
-     .name = "Tic Tac Toe",
-     .stack_size = 1024,
-     .icon = NULL,
      .flags = FlipperApplicationFlagDefault},
 #endif
 
