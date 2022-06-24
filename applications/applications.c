@@ -333,7 +333,7 @@ const FlipperApplication FLIPPER_GAMES[] = {
      .flags = FlipperApplicationFlagDefault},
 #endif
 
-#ifdef APP__GAME_2048
+#ifdef APP_GAME_2048
     {.app = game_2048_app,
      .name = "2048",
      .stack_size = 1024,
