@@ -132,6 +132,8 @@ static void subghz_protocol_encoder_came_atomo_get_upload(SubGhzProtocolEncoderC
     manchester_encoder_reset(&enc_state);
     ManchesterEncoderResult result;
 
+    uint8_t pack[8] = {};
+
     instance->generic.cnt++;
 
     //Send header
@@ -142,7 +144,6 @@ static void subghz_protocol_encoder_came_atomo_get_upload(SubGhzProtocolEncoderC
     
     for(uint8_t i = 0; i < 8; i++) {
 
-        uint8_t pack[8] = {};
         pack[0] = (instance->generic.data_2 >> 56); pack[1] = (instance->generic.cnt >> 8); 
         pack[2] = (instance->generic.cnt & 0xFF); pack[3] = ((instance->generic.data_2 >> 32) & 0xFF);
         pack[4] = ((instance->generic.data_2 >> 24) & 0xFF); pack[5] = ((instance->generic.data_2 >> 16) & 0xFF); 
@@ -158,14 +159,17 @@ static void subghz_protocol_encoder_came_atomo_get_upload(SubGhzProtocolEncoderC
         uint32_t hi = pack[0] << 24 | pack[1] << 16 | pack[2] << 8 | pack[3];
         uint32_t lo = pack[4] << 24 | pack[5] << 16 | pack[6] << 8 | pack[7];
         instance->generic.data = (uint64_t)hi << 32 | lo;
-        
+
         instance->generic.data ^= 0xFFFFFFFFFFFFFFFF;
         instance->generic.data >>= 4;
-        instance->generic.data = (uint64_t)0x1 << 60 | instance->generic.data;
-        hi = instance->generic.data >> 32;
-        lo = instance->generic.data & 0xFFFFFFFF;    
+        instance->generic.data &= 0xFFFFFFFFFFFFFFF;     
         
-        for(uint8_t i = instance->generic.data_count_bit; i > 0; i--) {
+        instance->encoder.upload[index++] =
+        level_duration_make(true, (uint32_t)subghz_protocol_came_atomo_const.te_long);
+        instance->encoder.upload[index++] =
+        level_duration_make(false, (uint32_t)subghz_protocol_came_atomo_const.te_short);
+        
+        for(uint8_t i = (instance->generic.data_count_bit - 2); i > 0; i--) {
             if(!manchester_encoder_advance(&enc_state, !bit_read(instance->generic.data, i - 1), &result)) {
                 instance->encoder.upload[index++] = subghz_protocol_encoder_came_atomo_add_duration_to_upload(result);
                 manchester_encoder_advance(&enc_state, !bit_read(instance->generic.data, i - 1), &result);
@@ -181,6 +185,20 @@ static void subghz_protocol_encoder_came_atomo_get_upload(SubGhzProtocolEncoderC
             level_duration_make(false, (uint32_t)subghz_protocol_came_atomo_const.te_delta * 272);
     }
     instance->encoder.size_upload = index;
+    instance->generic.cnt_2++;
+    pack[0] = (instance->generic.cnt_2); pack[1] = (instance->generic.cnt >> 8); 
+    pack[2] = (instance->generic.cnt & 0xFF); pack[3] = ((instance->generic.data_2 >> 32) & 0xFF);
+    pack[4] = ((instance->generic.data_2 >> 24) & 0xFF); pack[5] = ((instance->generic.data_2 >> 16) & 0xFF); 
+    pack[6] = ((instance->generic.data_2 >> 8) & 0xFF); pack[7] = (instance->generic.data_2 & 0xFF);
+    
+    atomo_encrypt(pack);
+    uint32_t hi = pack[0] << 24 | pack[1] << 16 | pack[2] << 8 | pack[3];
+    uint32_t lo = pack[4] << 24 | pack[5] << 16 | pack[6] << 8 | pack[7];
+    instance->generic.data = (uint64_t)hi << 32 | lo;
+
+    instance->generic.data ^= 0xFFFFFFFFFFFFFFFF;
+    instance->generic.data >>= 4;
+    instance->generic.data &= 0xFFFFFFFFFFFFFFF;
 }
 
 bool subghz_protocol_encoder_came_atomo_deserialize(void* context, FlipperFormat* flipper_format) {
@@ -434,6 +452,69 @@ static void subghz_protocol_came_atomo_remote_controller(
     
     atomo_decrypt(pack);
     
+    instance->cnt_2 = pack[0];
+    instance->cnt = (uint16_t)pack[1] << 8 | pack[2];
+    instance->serial = (uint32_t)(pack[3]) << 24 | pack[4] << 16 | pack[5] << 8 | pack[6];
+    
+    uint8_t btn_decode = (pack[7] >> 4);
+    if(btn_decode == 0x0) {instance->btn = 0x1;}
+    if(btn_decode == 0x2) {instance->btn = 0x2;}
+    if(btn_decode == 0x4) {instance->btn = 0x3;}
+    if(btn_decode == 0x6) {instance->btn = 0x4;}
+    
+    uint32_t hi = pack[0] << 24 | pack[1] << 16 | pack[2] << 8 | pack[3];
+    uint32_t lo = pack[4] << 24 | pack[5] << 16 | pack[6] << 8 | pack[7];
+    instance->data_2 = (uint64_t)hi << 32 | lo;
+}
+
+void atomo_encrypt(uint8_t *buff) {
+    uint8_t tmpB = (~buff[0]+1) & 0x7F;
+
+    uint8_t bitCnt = 8;
+    while (bitCnt < 59) {
+        if ( (tmpB & 0x18) && ( ((tmpB / 8) & 3) != 3 ) ) {
+            tmpB = ((tmpB << 1) & 0xFF) | 1;
+        } else {
+            tmpB = (tmpB << 1) & 0xFF;
+        }
+
+        if ( tmpB & 0x80 ) {
+            buff[bitCnt/8] ^= (0x80 >> (bitCnt & 7));
+        }
+
+        bitCnt++;
+    }
+
+    buff[0] = ( buff[0] ^ 5 ) & 0x7F;
+}
+
+void atomo_decrypt(uint8_t *buff) {
+    buff[0] = ( buff[0] ^ 5 ) & 0x7F;
+    uint8_t tmpB = ( -buff[0]) & 0x7F;
+
+    uint8_t bitCnt = 8;
+    while (bitCnt < 59) {
+        if ( (tmpB & 0x18) && ( ((tmpB / 8) & 3) != 3 ) ) {
+            tmpB = ((tmpB << 1) & 0xFF) | 1;
+        } else {
+            tmpB = (tmpB << 1) & 0xFF;
+        }
+
+        if ( tmpB & 0x80 ) {
+            buff[bitCnt /8] ^= (0x80 >> (bitCnt & 7));
+        }
+
+    instance->data ^= 0xFFFFFFFFFFFFFFFF;
+    instance->data <<= 4;
+    
+    uint8_t pack[8] = {};
+    pack[0] = (instance->data >> 56); pack[1] = ((instance->data >> 48) & 0xFF); 
+    pack[2] = ((instance->data >> 40) & 0xFF); pack[3] = ((instance->data >> 32) & 0xFF);
+    pack[4] = ((instance->data >> 24) & 0xFF); pack[5] = ((instance->data >> 16) & 0xFF); 
+    pack[6] = ((instance->data >> 8) & 0xFF); pack[7] = (instance->data & 0xFF);
+    
+    atomo_decrypt(pack);
+
     instance->cnt_2 = pack[0];
     instance->cnt = (uint16_t)pack[1] << 8 | pack[2];
     instance->serial = (uint32_t)(pack[3]) << 24 | pack[4] << 16 | pack[5] << 8 | pack[6];

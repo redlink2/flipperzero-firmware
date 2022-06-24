@@ -34,11 +34,12 @@ static const uint32_t subghz_frequency_list[] = {
     433220000, /* 2016-2020 Honda */ 
     433420000,
     433889000, /* ROGUE? */
-    433920000, /* LPD433 mid */
+    433920000 | FREQUENCY_FLAG_DEFAULT, /* LPD433 mid */
     434420000,
     434775000, /* LPD433 last channels */
     438900000,
     464000000,
+
     /* 779 - 928 */
     779000000,
     868350000,
