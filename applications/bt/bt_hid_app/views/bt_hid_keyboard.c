@@ -21,6 +21,7 @@ typedef struct {
     bool ok_pressed;
     bool back_pressed;
     bool connected;
+    char key_string[5];
 } BtHidKeyboardModel;
 
 typedef struct {
@@ -45,7 +46,7 @@ typedef struct {
 #define COLUMN_COUNT 12
 
 // 0 width items are not drawn, but there value is used
-BtHidKeyboardKey keyboardKeySet[ROW_COUNT][COLUMN_COUNT] = {
+const BtHidKeyboardKey bt_hid_keyboard_keyset[ROW_COUNT][COLUMN_COUNT] = {
     {
         {.width = 1, .icon = NULL, .key = "1", .shift_key = "!", .value = HID_KEYBOARD_1},
         {.width = 1, .icon = NULL, .key = "2", .shift_key = "@", .value = HID_KEYBOARD_2},
@@ -79,15 +80,15 @@ BtHidKeyboardKey keyboardKeySet[ROW_COUNT][COLUMN_COUNT] = {
          .value = HID_KEYBOARD_CLOSE_BRACKET},
     },
     {
-        {.width = 1, .icon = NULL, .key = "a", .shift_key = "A", .value = HID_KEYBOARD_Q},
-        {.width = 1, .icon = NULL, .key = "s", .shift_key = "S", .value = HID_KEYBOARD_W},
-        {.width = 1, .icon = NULL, .key = "d", .shift_key = "D", .value = HID_KEYBOARD_E},
-        {.width = 1, .icon = NULL, .key = "f", .shift_key = "F", .value = HID_KEYBOARD_R},
-        {.width = 1, .icon = NULL, .key = "g", .shift_key = "G", .value = HID_KEYBOARD_T},
-        {.width = 1, .icon = NULL, .key = "h", .shift_key = "H", .value = HID_KEYBOARD_Y},
-        {.width = 1, .icon = NULL, .key = "j", .shift_key = "J", .value = HID_KEYBOARD_U},
-        {.width = 1, .icon = NULL, .key = "k", .shift_key = "K", .value = HID_KEYBOARD_I},
-        {.width = 1, .icon = NULL, .key = "l", .shift_key = "L", .value = HID_KEYBOARD_O},
+        {.width = 1, .icon = NULL, .key = "a", .shift_key = "A", .value = HID_KEYBOARD_A},
+        {.width = 1, .icon = NULL, .key = "s", .shift_key = "S", .value = HID_KEYBOARD_S},
+        {.width = 1, .icon = NULL, .key = "d", .shift_key = "D", .value = HID_KEYBOARD_D},
+        {.width = 1, .icon = NULL, .key = "f", .shift_key = "F", .value = HID_KEYBOARD_F},
+        {.width = 1, .icon = NULL, .key = "g", .shift_key = "G", .value = HID_KEYBOARD_G},
+        {.width = 1, .icon = NULL, .key = "h", .shift_key = "H", .value = HID_KEYBOARD_H},
+        {.width = 1, .icon = NULL, .key = "j", .shift_key = "J", .value = HID_KEYBOARD_J},
+        {.width = 1, .icon = NULL, .key = "k", .shift_key = "K", .value = HID_KEYBOARD_K},
+        {.width = 1, .icon = NULL, .key = "l", .shift_key = "L", .value = HID_KEYBOARD_L},
         {.width = 1, .icon = NULL, .key = ";", .shift_key = ":", .value = HID_KEYBOARD_SEMICOLON},
         {.width = 2, .icon = &I_Pin_arrow_right_9x7, .value = HID_KEYBOARD_RETURN},
         {.width = 0, .value = HID_KEYBOARD_RETURN},
@@ -141,7 +142,6 @@ static void bt_hid_keyboard_to_upper(char* str) {
         str++;
     }
 }
-char keyString[5];
 static void bt_hid_keyboard_draw_key(
     Canvas* canvas,
     BtHidKeyboardModel* model,
@@ -180,12 +180,12 @@ static void bt_hid_keyboard_draw_key(
             key.icon);
     } else {
         // If shift is toggled use the shift key when available
-        strcpy(keyString, (model->shift && key.shift_key != 0) ? key.shift_key : key.key);
+        strcpy(model->key_string, (model->shift && key.shift_key != 0) ? key.shift_key : key.key);
         // Upper case if ctrl or alt was toggled true
         if((model->ctrl && key.value == HID_KEYBOARD_L_CTRL) ||
            (model->alt && key.value == HID_KEYBOARD_L_ALT) ||
            (model->gui && key.value == HID_KEYBOARD_L_GUI)) {
-            bt_hid_keyboard_to_upper(keyString);
+            bt_hid_keyboard_to_upper(model->key_string);
         }
         canvas_draw_str_aligned(
             canvas,
@@ -193,7 +193,7 @@ static void bt_hid_keyboard_draw_key(
             MARGIN_TOP + y * (KEY_HEIGHT + KEY_PADDING) + KEY_HEIGHT / 2,
             AlignCenter,
             AlignCenter,
-            keyString);
+            model->key_string);
     }
 }
 
@@ -215,7 +215,7 @@ static void bt_hid_keyboard_draw_callback(Canvas* canvas, void* context) {
     // Start shifting the all keys up if on the next row (Scrolling)
     uint8_t initY = model->y - 4 > 0 ? model->y - 4 : 0;
     for(uint8_t y = initY; y < ROW_COUNT; y++) {
-        BtHidKeyboardKey* keyboardKeyRow = keyboardKeySet[y];
+        const BtHidKeyboardKey* keyboardKeyRow = bt_hid_keyboard_keyset[y];
         uint8_t x = 0;
         for(uint8_t i = 0; i < COLUMN_COUNT; i++) {
             BtHidKeyboardKey key = keyboardKeyRow[i];
@@ -236,8 +236,9 @@ static void bt_hid_keyboard_draw_callback(Canvas* canvas, void* context) {
         }
     }
 }
+
 static uint8_t bt_hid_keyboard_get_selected_key(BtHidKeyboardModel* model) {
-    BtHidKeyboardKey key = keyboardKeySet[model->y][model->x];
+    BtHidKeyboardKey key = bt_hid_keyboard_keyset[model->y][model->x];
     // Use upper case if shift is toggled
     bool useUppercase = model->shift;
     // Check if the key has an upper case version
@@ -254,14 +255,14 @@ static void bt_hid_keyboard_get_select_key(BtHidKeyboardModel* model, BtHidKeybo
             model->y = ROW_COUNT - 1;
         else
             model->y = (model->y + delta.y) % ROW_COUNT;
-    } while(delta.y != 0 && keyboardKeySet[model->y][model->x].value == 0);
+    } while(delta.y != 0 && bt_hid_keyboard_keyset[model->y][model->x].value == 0);
 
     do {
         if(((int8_t)model->x) + delta.x < 0)
             model->x = COLUMN_COUNT - 1;
         else
             model->x = (model->x + delta.x) % COLUMN_COUNT;
-    } while(delta.x != 0 && keyboardKeySet[model->y][model->x].width ==
+    } while(delta.x != 0 && bt_hid_keyboard_keyset[model->y][model->x].width ==
                                 0); // Skip zero width keys, pretend they are one key
 }
 
