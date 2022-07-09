@@ -250,4 +250,5 @@ bool furi_hal_hid_consumer_key_press(uint16_t button);
  *
  * @param      button  key code
  */
+<<<<<<< HEAD
 bool furi_hal_hid_consumer_key_release(uint16_t button);

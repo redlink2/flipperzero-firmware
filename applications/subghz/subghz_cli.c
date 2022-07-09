@@ -752,4 +752,5 @@ void subghz_on_system_start() {
 #else
     UNUSED(subghz_cli_command);
 #endif
+<<<<<<< HEAD
 }

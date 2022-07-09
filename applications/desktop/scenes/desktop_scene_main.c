@@ -85,7 +85,12 @@ bool desktop_scene_main_on_event(void* context, SceneManagerEvent event) {
             loader_show_menu();
             consumed = true;
             break;
-
+                
+        case DesktopMainEventOpenGames:
+            loader_show_game_menu();
+            consumed = true;
+            break;
+                
         case DesktopMainEventOpenLockMenu:
             scene_manager_next_scene(desktop->scene_manager, DesktopSceneLockMenu);
             consumed = true;
@@ -111,7 +116,10 @@ bool desktop_scene_main_on_event(void* context, SceneManagerEvent event) {
             consumed = true;
             break;
         }
-
+        case DesktopMainEventOpenClock:
+            loader_start(desktop->loader, FLIPPER_APPS[0].name, NULL);
+            consumed = true;
+            break;
         case DesktopMainEventOpenFavoritePrimary:
             LOAD_DESKTOP_SETTINGS(&desktop->settings);
             if(desktop->settings.favorite_primary < FLIPPER_APPS_COUNT) {

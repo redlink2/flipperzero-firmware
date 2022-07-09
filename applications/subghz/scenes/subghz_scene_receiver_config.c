@@ -1,5 +1,15 @@
 #include "../subghz_i.h"
 
+#include <lib/subghz/protocols/raw.h>
+
+enum SubGhzSettingIndex {
+    SubGhzSettingIndexFrequency,
+    SubGhzSettingIndexHopping,
+    SubGhzSettingIndexModulation,
+    SubGhzSettingIndexDetectRaw,
+    SubGhzSettingIndexLock,
+};
+
 #define PRESET_COUNT 4
 const char* const preset_text[PRESET_COUNT] = {
     "AM270",
@@ -22,6 +32,16 @@ const char* const hopping_text[HOPPING_COUNT] = {
 const uint32_t hopping_value[HOPPING_COUNT] = {
     SubGhzHopperStateOFF,
     SubGhzHopperStateRunnig,
+};
+
+#define DETECT_RAW_COUNT 2
+const char* const detect_raw_text[DETECT_RAW_COUNT] = {
+    "OFF",
+    "ON",
+};
+const SubGhzProtocolFlag detect_raw_value[DETECT_RAW_COUNT] = {
+    SubGhzProtocolFlag_Decodable,
+    SubGhzProtocolFlag_Decodable | SubGhzProtocolFlag_RAW,
 };
 
 uint8_t subghz_scene_receiver_config_uint32_value_index(
@@ -75,6 +95,20 @@ uint8_t subghz_scene_receiver_config_hopper_value_index(
     }
 }
 
+uint8_t subghz_scene_receiver_config_detect_raw_value_index(
+    const SubGhzProtocolFlag value,
+    const SubGhzProtocolFlag values[],
+    uint8_t values_count) {
+    uint8_t index = 0;
+    for(uint8_t i = 0; i < values_count; i++) {
+        if(value == values[i]) {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
+
 static void subghz_scene_receiver_config_set_frequency(VariableItem* item) {
     SubGhz* subghz = variable_item_get_context(item);
     uint8_t index = variable_item_get_current_value_index(item);
@@ -100,6 +134,18 @@ static void subghz_scene_receiver_config_set_preset(VariableItem* item) {
 
     variable_item_set_current_value_text(item, preset_text[index]);
     subghz->txrx->preset = preset_value[index];
+}
+
+static void subghz_scene_receiver_config_set_detect_raw(VariableItem* item) {
+    SubGhz* subghz = variable_item_get_context(item);
+    uint8_t index = variable_item_get_current_value_index(item);
+
+    variable_item_set_current_value_text(item, detect_raw_text[index]);
+    subghz_receiver_set_filter(subghz->txrx->receiver, detect_raw_value[index]);
+    subghz_protocol_decoder_raw_set_auto_mode(
+        subghz_receiver_search_decoder_base_by_name(subghz->txrx->receiver, SUBGHZ_PROTOCOL_RAW_NAME),
+        (index == 1)
+    );
 }
 
 static void subghz_scene_receiver_config_set_hopping_runing(VariableItem* item) {
@@ -135,6 +181,15 @@ static void subghz_scene_receiver_config_set_hopping_runing(VariableItem* item) 
     }
 
     subghz->txrx->hopper_state = hopping_value[index];
+}
+
+static void subghz_scene_receiver_config_var_list_enter_callback(void* context, uint32_t index) {
+    furi_assert(context);
+    SubGhz* subghz = context;
+    if(index == SubGhzSettingIndexLock) {
+        view_dispatcher_send_custom_event(
+            subghz->view_dispatcher, SubGhzCustomEventSceneSettingLock);
+    }
 }
 
 void subghz_scene_receiver_config_on_enter(void* context) {
@@ -185,13 +240,43 @@ void subghz_scene_receiver_config_on_enter(void* context) {
     variable_item_set_current_value_index(item, value_index);
     variable_item_set_current_value_text(item, preset_text[value_index]);
 
+    if(scene_manager_get_scene_state(subghz->scene_manager, SubGhzSceneReadRAW) !=
+        SubGhzCustomEventManagerSet) {
+        item = variable_item_list_add(
+            subghz->variable_item_list,
+            "Detect Raw:",
+            DETECT_RAW_COUNT,
+            subghz_scene_receiver_config_set_detect_raw,
+            subghz);
+        value_index = subghz_scene_receiver_config_detect_raw_value_index(
+            subghz_receiver_get_filter(subghz->txrx->receiver), detect_raw_value, DETECT_RAW_COUNT);
+        variable_item_set_current_value_index(item, value_index);
+        variable_item_set_current_value_text(item, detect_raw_text[value_index]);
+    }
+
+    if(scene_manager_get_scene_state(subghz->scene_manager, SubGhzSceneReadRAW) !=
+       SubGhzCustomEventManagerSet) {
+        variable_item_list_add(subghz->variable_item_list, "Lock Keyboard", 1, NULL, NULL);
+        variable_item_list_set_enter_callback(
+            subghz->variable_item_list,
+            subghz_scene_receiver_config_var_list_enter_callback,
+            subghz);
+    }
     view_dispatcher_switch_to_view(subghz->view_dispatcher, SubGhzViewIdVariableItemList);
 }
 
 bool subghz_scene_receiver_config_on_event(void* context, SceneManagerEvent event) {
-    UNUSED(context);
-    UNUSED(event);
-    return false;
+    SubGhz* subghz = context;
+    bool consumed = false;
+
+    if(event.type == SceneManagerEventTypeCustom) {
+        if(event.event == SubGhzCustomEventSceneSettingLock) {
+            subghz->lock = SubGhzLockOn;
+            scene_manager_previous_scene(subghz->scene_manager);
+            consumed = true;
+        }
+    }
+    return consumed;
 }
 
 void subghz_scene_receiver_config_on_exit(void* context) {
